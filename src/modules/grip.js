@@ -77,6 +77,5 @@ const plagueBokwin = {
   speed: 0.883,
   img: '',
 };
-  
+
 export { jayap, korb, kroostra, kwath, laka, peye, seekalla, shtung, plagueAkwin, plagueBokwin };
-  
