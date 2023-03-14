@@ -78,4 +78,4 @@ const plagueBokwin = {
   img: '',
 };
 
-export { jayap, korb, kroostra, kwath, laka, peye, seekalla, shtung, plagueAkwin, plagueBokwin };
+export const grips = [jayap, korb, kroostra, kwath, laka, peye, seekalla, shtung, plagueAkwin, plagueBokwin];

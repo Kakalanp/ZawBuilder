@@ -127,4 +127,4 @@ const ruhang = {
     dmgMod: 28,
   };
 
-export { jai, ruhang, jai2, ruhang2, vargeetJai, vargeetRuhang, ekwanaJai, ekwanaRuhang, vargeet2Jai, vargeet2Ruhang, ekwana2Jai, ekwana2Ruhang, vargeetJai2, vargeetRuhang2, ekwanaJai2, ekwanaRuhang2}
+export const links = [jai, ruhang, jai2, ruhang2, vargeetJai, vargeetRuhang, ekwanaJai, ekwanaRuhang, vargeet2Jai, vargeet2Ruhang, ekwana2Jai, ekwana2Ruhang, vargeetJai2, vargeetRuhang2, ekwanaJai2, ekwanaRuhang2]
