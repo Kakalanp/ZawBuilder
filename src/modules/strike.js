@@ -196,4 +196,6 @@ const balla = {
     img: ""
   }
 
-  export const strikes = [balla, cyath, dehtat, dokrahm, kronsh, mewan, ooltha, rabvee, sepfahn, plagueKeewar, plagueKripath]
+  const strikes = [balla, cyath, dehtat, dokrahm, kronsh, mewan, ooltha, rabvee, sepfahn, plagueKeewar, plagueKripath];
+
+  export default strikes;
