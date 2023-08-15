@@ -1,9 +1,9 @@
 const balla = {
-    name: "Balla",
-    type1: "Dagger",
-    range1: "1.7",
-    type2: "Staff",
-    range2: "3.0",
+    name: 'Balla',
+    type1: 'Dagger',
+    range1: '1.7',
+    type2: 'Staff',
+    range2: '3.0',
     dmg: 224,
     impact: 11.2,
     puncture: 134.4,
@@ -13,15 +13,15 @@ const balla = {
     critChance: 18,
     critMulti: 2,
     status: 18,
-    img: ""
+    img: 'balla'
   };
 
   const cyath = {
-    name: "Cyath",
-    type1: "Machete",
-    range1: "2.6",
-    type2: "Polearm",
-    range2: "3.0",
+    name: 'Cyath',
+    type1: 'Machete',
+    range1: '2.6',
+    type2: 'Polearm',
+    range2: '3.0',
     dmg: 230,
     impact: 46,
     puncture: 11.5,
@@ -31,15 +31,15 @@ const balla = {
     critChance: 18,
     critMulti: 2,
     status: 18,
-    img: ""
+    img: 'cyath'
   };
 
   const dehtat = {
-    name: "Dehtat",
-    type1: "Rapier",
-    range1: "2.5",
-    type2: "Polearm",
-    range2: "3.0",
+    name: 'Dehtat',
+    type1: 'Rapier',
+    range1: '2.5',
+    type2: 'Polearm',
+    range2: '3.0',
     dmg: 224,
     impact: 22.4,
     puncture: 112,
@@ -49,15 +49,15 @@ const balla = {
     critChance: 18,
     critMulti: 2,
     status: 18,
-    img: ""
+    img: 'dehtat'
   };
 
   const dokrahm = {
-    name: "Dokrahm",
-    type1: "Scythe",
-    range1: "1.7",
-    type2: "Heavy",
-    range2: "()",
+    name: 'Dokrahm',
+    type1: 'Scythe',
+    range1: '1.7',
+    type2: 'Heavy',
+    range2: '()',
     dmg: 309,
     impact: 46.4,
     puncture: 108.1,
@@ -67,15 +67,15 @@ const balla = {
     critChance: 18,
     critMulti: 2,
     status: 18,
-    img: ""
+    img: 'dokrahm'
   };
 
   const kronsh = {
-    name: "Kronsh",
-    type1: "Machete",
-    range1: "2.6",
-    type2: "Polearm",
-    range2: "3.0",
+    name: 'Kronsh',
+    type1: 'Machete',
+    range1: '2.6',
+    type2: 'Polearm',
+    range2: '3.0',
     dmg: 234,
     impact: 163.8,
     puncture: null,
@@ -85,15 +85,15 @@ const balla = {
     critChance: 18,
     critMulti: 2,
     status: 18,
-    img: ""
+    img: 'kronsh'
   };
 
   const mewan = {
-    name: "Mewan",
-    type1: "Sword",
-    range1: "2.5",
-    type2: "Polearm",
-    range2: "3.0",
+    name: 'Mewan',
+    type1: 'Sword',
+    range1: '2.5',
+    type2: 'Polearm',
+    range2: '3.0',
     dmg: 224,
     impact: 56,
     puncture: 78.4,
@@ -103,15 +103,15 @@ const balla = {
     critChance: 18,
     critMulti: 2,
     status: 18,
-    img: ""
+    img: 'mewan'
   };
 
   const ooltha = {
-    name: "Ooltha",
-    type1: "Sword",
-    range1: "2.5",
-    type2: "Staff",
-    range2: "3.0",
+    name: 'Ooltha',
+    type1: 'Sword',
+    range1: '2.5',
+    type2: 'Staff',
+    range2: '3.0',
     dmg: 224,
     impact: 22.4,
     puncture: 89.6,
@@ -121,15 +121,15 @@ const balla = {
     critChance: 18,
     critMulti: 2,
     status: 18,
-    img: ""
+    img: 'ooltha'
   };
 
   const rabvee = {
-    name: "Rabvee",
-    type1: "Machete",
-    range1: "2.6",
-    type2: "Hammer",
-    range2: "3.0",
+    name: 'Rabvee',
+    type1: 'Machete',
+    range1: '2.6',
+    type2: 'Hammer',
+    range2: '3.0',
     dmg: 234,
     impact: 140.4,
     puncture: 11.7,
@@ -139,15 +139,15 @@ const balla = {
     critChance: 18,
     critMulti: 2,
     status: 18,
-    img: ""
+    img: 'rabvee'
   };
 
   const sepfahn = {
-    name: "Sepfahn",
-    type1: "Nikana",
-    range1: "2.5",
-    type2: "Staff",
-    range2: "3.0",
+    name: 'Sepfahn',
+    type1: 'Nikana',
+    range1: '2.5',
+    type2: 'Staff',
+    range2: '3.0',
     dmg: 226,
     impact: 22.6,
     puncture: 56.5,
@@ -157,15 +157,15 @@ const balla = {
     critChance: 20,
     critMulti: 2,
     status: 20,
-    img: ""
+    img: 'sepfahn'
   };
 
   const plagueKeewar = {
-    name: "Plague Keewar",
-    type1: "Scythe",
-    range1: "1.7",
-    type2: "Staff",
-    range2: "3.0",
+    name: 'Plague Keewar',
+    type1: 'Scythe',
+    range1: '1.7',
+    type2: 'Staff',
+    range2: '3.0',
     dmg: 306,
     impact: 88,
     puncture: 57,
@@ -175,15 +175,15 @@ const balla = {
     critChance: 18,
     critMulti: 2,
     status: 22,
-    img: ""
+    img: 'plague-keewar'
   };
   
   const plagueKripath = {
-    name: "Plague Kripath",
-    type1: "Rapier",
-    range1: "2.5",
-    type2: "Polearm",
-    range2: "3.0",
+    name: 'Plague Kripath',
+    type1: 'Rapier',
+    range1: '2.5',
+    type2: 'Polearm',
+    range2: '3.0',
     dmg: 213,
     impact: 30,
     puncture: 70,
@@ -193,7 +193,7 @@ const balla = {
     critChance: 22,
     critMulti: 2.2,
     status: 18,
-    img: ""
+    img: 'plague-kripath'
   }
 
   const strikes = [balla, cyath, dehtat, dokrahm, kronsh, mewan, ooltha, rabvee, sepfahn, plagueKeewar, plagueKripath];

@@ -4,6 +4,7 @@ const jai = {
     crtMod: 0,
     stsMod: 0,
     dmgMod: -4,
+    img: 'jai',
   };
 
 const ruhang = {
@@ -12,6 +13,7 @@ const ruhang = {
     crtMod: 0,
     stsMod: 0,
     dmgMod: 14,
+    img: 'ruhang',
   };
 
   const jai2 = {
@@ -20,6 +22,7 @@ const ruhang = {
     crtMod: 0,
     stsMod: 0,
     dmgMod: -8,
+    img: 'jai-2',
   };
 
   const ruhang2 = {
@@ -28,6 +31,7 @@ const ruhang = {
     crtMod: 0,
     stsMod: 0,
     dmgMod: 28,
+    img: 'ruhang-2',
   };
 
   const vargeetJai = {
@@ -36,6 +40,7 @@ const ruhang = {
     crtMod: 7,
     stsMod: -4,
     dmgMod: -4,
+    img: 'vargeet-jai',
   };
 
   const vargeetRuhang = {
@@ -44,6 +49,7 @@ const ruhang = {
     crtMod: 7,
     stsMod: -4,
     dmgMod: 14,
+    img: 'vargeet-ruhang',
   };
 
   const ekwanaJai = {
@@ -52,6 +58,7 @@ const ruhang = {
     crtMod: -4,
     stsMod: 7,
     dmgMod: -4,
+    img: 'ekwana-jai',
   };
 
   const ekwanaRuhang = {
@@ -60,6 +67,7 @@ const ruhang = {
     crtMod: -4,
     stsMod: 7,
     dmgMod: 14,
+    img: 'ekwana-ruhang',
   };
 
   const vargeet2Jai = {
@@ -68,6 +76,7 @@ const ruhang = {
     crtMod: 14,
     stsMod: -8,
     dmgMod: -4,
+    img: 'vargeet-2-jai',
   };
 
   const vargeet2Ruhang = {
@@ -76,6 +85,7 @@ const ruhang = {
     crtMod: 14,
     stsMod: -8,
     dmgMod: 14,
+    img: 'vargeet-2-ruhang',
   };
 
   const ekwana2Jai = {
@@ -84,6 +94,7 @@ const ruhang = {
     crtMod: -8,
     stsMod: 14,
     dmgMod: -4,
+    img: 'ekwana-2-jai',
   };
 
   const ekwana2Ruhang = {
@@ -92,6 +103,7 @@ const ruhang = {
     crtMod: -8,
     stsMod: 14,
     dmgMod: 14,
+    img: 'ekwana-2-ruhang',
   };
 
   
@@ -101,6 +113,7 @@ const ruhang = {
     crtMod: 7,
     stsMod: -4,
     dmgMod: -8,
+    img: 'vargeet-jai-2',
   };
 
   const vargeetRuhang2 = {
@@ -109,6 +122,7 @@ const ruhang = {
     crtMod: 7,
     stsMod: -4,
     dmgMod: 28,
+    img: 'vargeet-ruhang-2',
   };
 
   const ekwanaJai2 = {
@@ -117,6 +131,7 @@ const ruhang = {
     crtMod: -4,
     stsMod: 7,
     dmgMod: -8,
+    img: 'ekwana-jai-2',
   };
 
   const ekwanaRuhang2 = {
@@ -125,6 +140,7 @@ const ruhang = {
     crtMod: -4,
     stsMod: 7,
     dmgMod: 28,
+    img: 'ekwana-ruhang-2',
   };
 
 const links = [jai, ruhang, jai2, ruhang2, vargeetJai, vargeetRuhang, ekwanaJai, ekwanaRuhang, vargeet2Jai, vargeet2Ruhang, ekwana2Jai, ekwana2Ruhang, vargeetJai2, vargeetRuhang2, ekwanaJai2, ekwanaRuhang2];

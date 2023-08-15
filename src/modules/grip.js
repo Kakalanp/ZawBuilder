@@ -3,7 +3,7 @@ const jayap = {
   type: 1,
   dmgMod: 0,
   speed: 0.917,
-  img: '',
+  img: 'jayap',
 };
 
 const korb = {
@@ -11,7 +11,7 @@ const korb = {
   type: 0,
   dmgMod: 28,
   speed: 0.783,
-  img: '',
+  img: 'korb',
 };
 
 const kroostra = {
@@ -19,7 +19,7 @@ const kroostra = {
   type: 1,
   dmgMod: 14,
   speed: 0.850,
-  img: '',
+  img: 'kroostra',
 };
 
 const kwath = {
@@ -27,7 +27,7 @@ const kwath = {
   type: 0,
   dmgMod: 14,
   speed: 0.850,
-  img: '',
+  img: 'kwath',
 };
 
 const laka = {
@@ -35,7 +35,7 @@ const laka = {
   type: 0,
   dmgMod: 0,
   speed: 0.917,
-  img: '',
+  img: 'laka',
 };
 
 const peye = {
@@ -43,7 +43,7 @@ const peye = {
   type: 0,
   dmgMod: -4,
   speed: 1,
-  img: '',
+  img: 'peye',
 };
 
 const seekalla = {
@@ -51,7 +51,7 @@ const seekalla = {
   type: 1,
   dmgMod: -4,
   speed: 1,
-  img: '',
+  img: 'seekalla',
 };
 
 const shtung = {
@@ -59,7 +59,7 @@ const shtung = {
   type: 1,
   dmgMod: 28,
   speed: 0.783,
-  img: '',
+  img: 'shtung',
 };
 
 const plagueAkwin = {
@@ -67,7 +67,7 @@ const plagueAkwin = {
   type: 0,
   dmgMod: -2,
   speed: 	0.950,
-  img: '',
+  img: 'plague-akwin',
 };
 
 const plagueBokwin = {
@@ -75,7 +75,7 @@ const plagueBokwin = {
   type: 1,
   dmgMod: 7,
   speed: 0.883,
-  img: '',
+  img: 'plague-bokwin',
 };
 
 const grips = [jayap, korb, kroostra, kwath, laka, peye, seekalla, shtung, plagueAkwin, plagueBokwin];
