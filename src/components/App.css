@@ -1,0 +1,12 @@
+body {
+  background-color: #456360;
+  color: white;
+}
+
+.disabled {
+  display: none;;
+}
+
+.builder:hover {
+  color: #e8d55d;
+}
