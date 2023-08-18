@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './App.css';
 import grips from '../modules/grip';
 import links from '../modules/link';
@@ -6,20 +6,22 @@ import strikes from '../modules/strike';
 
 function App() {
 
-  const [zawStats, setZawStats] = useState({
-    strike: {
-      name: '',
-      imgSrc: '',
-    },
-    grip: {
-      name: '',
-      imgSrc: '',
-    },
-    link: {
-      name: '',
-      imgSrc: '',
-    }
+  const [zawParts, setZawParts] = useState({
+    strike: {},
+    grip: {},
+    link: {}
   });
+
+  const [zawStats, setZawStats] = useState({});
+
+  useEffect(() => {
+    if ((Object.keys(zawParts.strike).length !== 0) && 
+        (Object.keys(zawParts.grip).length !== 0) &&
+        (Object.keys(zawParts.link).length !== 0)) {
+          createZaw();
+          document.getElementById('finalZaw').classList.remove('disabled');
+    }
+  },[zawParts])
 
   function OpenPieceSelection(piece) {
     document.getElementById(`${piece}-selector`).classList.remove('disabled');
@@ -30,44 +32,60 @@ function App() {
     document.getElementById(`${piece}-selector`).classList.add('disabled');
     document.getElementById('builder').classList.remove('disabled');
 
-    setZawStats({...zawStats, [piece]: {
-        name: part.name,
-        imgSrc: require('../assets/images/' + piece + '/' + part.img + '.png'),
-    }});
-}
+    setZawParts({...zawParts, [piece]: {...part}})
+  }
+
+  //this function is only called once in one place, but the scope will change in later versions.
+  function createZaw() {
+    setZawStats({
+      name: `${zawParts.strike.name}-${zawParts.grip.name} (${zawParts.link.name})`,
+      type: !!zawParts.grip.type ? zawParts.strike.type2 : zawParts.strike.type1
+    });
+  }
 
   return(
-    <div>
+    <>
       <div id='builder'>
-        <div className='builder' onClick={() => OpenPieceSelection('strike')}>
+        <div className='piece' onClick={() => OpenPieceSelection('strike')}>
           <div>
-            <img id='strike-img' src={zawStats.strike.imgSrc}></img>
+            <img id='strike-img' src={zawParts.strike.img && require('../assets/images/strike/' + zawParts.strike.img + '.png')}></img>
           </div>
           <div>
-            <h3 id='strike-name'>{zawStats.strike.name !== '' ? zawStats.strike.name : 'NONE'}</h3>
+            <h3 id='strike-name'>{zawParts.strike.name !== '' ? zawParts.strike.name : 'NONE'}</h3>
             <p>Strike</p>
           </div>
         </div>
-        <div className='builder' onClick={() => OpenPieceSelection('grip')}>
+        <div className='piece' onClick={() => OpenPieceSelection('grip')}>
           <div>
-            <img id='grip-img' src={zawStats.grip.imgSrc}></img>
+            <img id='grip-img' src={zawParts.grip.img && require('../assets/images/grip/' + zawParts.grip.img + '.png')}></img>
           </div>
           <div>
-            <h3 id='grip-name'>{zawStats.grip.name !== '' ? zawStats.grip.name : 'NONE'}</h3>
+            <h3 id='grip-name'>{zawParts.grip.name !== '' ? zawParts.grip.name : 'NONE'}</h3>
             <p>Grip</p>
           </div>
         </div>
-        <div className='builder' onClick={() => OpenPieceSelection('link')}>
+        <div className='piece' onClick={() => OpenPieceSelection('link')}>
           <div>
-            <img id='link-img' src={zawStats.link.imgSrc}></img>
+            <img id='link-img' src={zawParts.link.img && require('../assets/images/link/' + zawParts.link.img + '.png')}></img>
           </div>
           <div>
-            <h3 id='link-name'>{zawStats.link.name !== '' ? zawStats.link.name : 'NONE'}</h3>
+            <h3 id='link-name'>{zawParts.link.name !== '' ? zawParts.link.name : 'NONE'}</h3>
             <p>Link</p>
           </div>
         </div>
       </div>
-      <div>
+
+      <div id='finalZaw' className='disabled'>
+        <div id='zaRender'></div>
+        <div id='zawStats'>
+          <p>Name: {zawStats.name}</p>
+          <p>Type: {zawStats.type}</p>
+          <p>Dmg: {zawStats.dmg}</p>
+          <p>Speed: {zawStats.spd}</p>
+        </div>
+      </div>
+
+      <div className='selector'>
         <div id='strike-selector' className='disabled'>
           <h2>Strikes:</h2>
           {strikes.map(part => {
@@ -102,7 +120,7 @@ function App() {
           })}
         </div>
       </div>
-    </div>
+    </>
   )
 }
 

@@ -1,12 +1,26 @@
 body {
   background-color: #456360;
   color: white;
+  text-align: center;
+}
+
+#root {
+  display: flex;
+  padding: 40px;
 }
 
 .disabled {
-  display: none;;
+  display: none;
 }
 
-.builder:hover {
+.piece:hover {
   color: #e8d55d;
+}
+
+.selector, #builder {
+  width: 40%;
+}
+
+#finalZaw {
+  width: 50%;
 }
