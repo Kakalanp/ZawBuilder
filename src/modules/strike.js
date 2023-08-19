@@ -9,10 +9,10 @@ const balla = {
     puncture: 134.4,
     slash: 78.4,
     viral: 0,
-    speed: 0.083,
+    spdMod: 0.083,
     critChance: 18,
     critMulti: 2,
-    status: 18,
+    statusChance: 18,
     img: 'balla'
   };
 
@@ -27,10 +27,10 @@ const balla = {
     puncture: 11.5,
     slash: 172.5,
     viral: 0,
-    speed: 0,
+    spdMod: 0,
     critChance: 18,
     critMulti: 2,
-    status: 18,
+    statusChance: 18,
     img: 'cyath'
   };
 
@@ -45,10 +45,10 @@ const balla = {
     puncture: 112,
     slash: 89.6,
     viral: 0,
-    speed: 0.083,
+    spdMod: 0.083,
     critChance: 18,
     critMulti: 2,
-    status: 18,
+    statusChance: 18,
     img: 'dehtat'
   };
 
@@ -63,10 +63,10 @@ const balla = {
     puncture: 108.1,
     slash: 154.5,
     viral: 0,
-    speed: 0.083,
+    spdMod: 0.083,
     critChance: 18,
     critMulti: 2,
-    status: 18,
+    statusChance: 18,
     img: 'dokrahm'
   };
 
@@ -81,10 +81,10 @@ const balla = {
     puncture: null,
     slash: 70.2,
     viral: 0,
-    speed: -0.067,
+    spdMod: -0.067,
     critChance: 18,
     critMulti: 2,
-    status: 18,
+    statusChance: 18,
     img: 'kronsh'
   };
 
@@ -99,10 +99,10 @@ const balla = {
     puncture: 78.4,
     slash: 89.6,
     viral: 0,
-    speed: -0.067,
+    spdMod: -0.067,
     critChance: 18,
     critMulti: 2,
-    status: 18,
+    statusChance: 18,
     img: 'mewan'
   };
 
@@ -117,10 +117,10 @@ const balla = {
     puncture: 89.6,
     slash: 112,
     viral: 0,
-    speed: 0,
+    spdMod: 0,
     critChance: 18,
     critMulti: 2,
-    status: 18,
+    statusChance: 18,
     img: 'ooltha'
   };
 
@@ -135,10 +135,10 @@ const balla = {
     puncture: 11.7,
     slash: 81.9,
     viral: 0,
-    speed: -0.067,
+    spdMod: -0.067,
     critChance: 18,
     critMulti: 2,
-    status: 18,
+    statusChance: 18,
     img: 'rabvee'
   };
 
@@ -153,10 +153,10 @@ const balla = {
     puncture: 56.5,
     slash: 146.9,
     viral: 0,
-    speed: 0,
+    spdMod: 0,
     critChance: 20,
     critMulti: 2,
-    status: 20,
+    statusChance: 20,
     img: 'sepfahn'
   };
 
@@ -171,10 +171,10 @@ const balla = {
     puncture: 57,
     slash: 91,
     viral: 70,
-    speed: -0.033,
+    spdMod: -0.033,
     critChance: 18,
     critMulti: 2,
-    status: 22,
+    statusChance: 22,
     img: 'plague-keewar'
   };
   
@@ -189,10 +189,10 @@ const balla = {
     puncture: 70,
     slash: 49,
     viral: 64,
-    speed: 0.033,
+    spdMod: 0.033,
     critChance: 22,
     critMulti: 2.2,
-    status: 18,
+    statusChance: 18,
     img: 'plague-kripath'
   }
 

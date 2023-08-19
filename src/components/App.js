@@ -28,7 +28,7 @@ function App() {
     document.getElementById('builder').classList.add('disabled');
   }
 
-  function ClosePieceSelection(piece, part) {
+  function SelectPiece(piece, part) {
     document.getElementById(`${piece}-selector`).classList.add('disabled');
     document.getElementById('builder').classList.remove('disabled');
 
@@ -38,8 +38,34 @@ function App() {
   //this function is only called once in one place, but the scope will change in later versions.
   function createZaw() {
     setZawStats({
-      name: `${zawParts.strike.name}-${zawParts.grip.name} (${zawParts.link.name})`,
-      type: !!zawParts.grip.type ? zawParts.strike.type2 : zawParts.strike.type1
+      speed: zawParts.grip.speed + zawParts.strike.spdMod + + zawParts.link.spdMod,
+      type: !!zawParts.grip.type ? zawParts.strike.type2 : zawParts.strike.type1,
+      //DMG
+      dmgTotal: zawParts.strike.dmg + zawParts.grip.dmgMod + zawParts.link.dmgMod,
+      dmgType: 'TBD',
+      crtChance: zawParts.strike.critChance + zawParts.link.crtMod,
+      crtMultiplier: zawParts.strike.critMulti,
+      statusChance: zawParts.strike.statusChance + zawParts.link.stsMod,
+      slash: 'TBD',
+      impact: 'TBD',
+      puncture: 'TBD',
+      viral: 'TBD',
+      //heavy attack
+      heavyDmg: 'TBD',
+      heavySlamAtk: 'TBD',
+      heavySlamRadialDmg: 'TBD',
+      heavySlamRadius: 'TBD',
+      windUp: 'TBD',
+      //extras
+      stancePolarity: 'TBD',
+      range: 'TBD',
+      slamAtk: 'TBD',
+      slamRadialDmg: 'TBD',
+      slamRadius: 'TBD',
+      slideAtk: 'TBD',
+      blockAngle: 'TBD',
+      comboDuration: 5,
+      followThrough: 'TBD',
     });
   }
 
@@ -78,10 +104,38 @@ function App() {
       <div id='finalZaw' className='disabled'>
         <div id='zaRender'></div>
         <div id='zawStats'>
-          <p>Name: {zawStats.name}</p>
+          <h3>PRIMARY:</h3>
           <p>Type: {zawStats.type}</p>
-          <p>Dmg: {zawStats.dmg}</p>
-          <p>Speed: {zawStats.spd}</p>
+          <p>Speed: {zawStats.speed}</p>
+          <h3>DAMAGE:</h3>
+          <p>Dmg: {zawStats.dmgTotal} {`(Mainly ${dmgType})`}</p>
+          <p>Crit chance: {zawStats.crtChance}</p>
+          <p>Crit damage: {zawStats.crtMultiplier}</p>
+          <p>Status: {zawStats.statusChance}</p>
+          <h3>HEAVY ATTACK:</h3>
+
+          {/*
+      impact: 'TBD',
+      puncture: 'TBD',
+      viral: 'TBD',
+      //heavy attack
+      heavyDmg: 'TBD',
+      heavySlamAtk: 'TBD',
+      heavySlamRadialDmg: 'TBD',
+      heavySlamRadius: 'TBD',
+      windUp: 'TBD',
+      //extras
+      stancePolarity: 'TBD',
+      range: 'TBD',
+      slamAtk: 'TBD',
+      slamRadialDmg: 'TBD',
+      slamRadius: 'TBD',
+      slideAtk: 'TBD',
+      blockAngle: 'TBD',
+      comboDuration: 5,
+      followThrough: 'TBD',
+          */}
+
         </div>
       </div>
 
@@ -90,7 +144,7 @@ function App() {
           <h2>Strikes:</h2>
           {strikes.map(part => {
             return (
-              <div key={part.name} onClick={() => ClosePieceSelection('strike', part)}>
+              <div key={part.name} onClick={() => SelectPiece('strike', part)}>
                 <p>{part.name}</p>
                 < img src={require('../assets/images/strike/' + part.img + '.png')} alt={part.name} />
               </div>
@@ -101,7 +155,7 @@ function App() {
           <h2>Grips:</h2>
           {grips.map(part => {
             return (
-              <div key={part.name} onClick={() => ClosePieceSelection('grip', part)}>
+              <div key={part.name} onClick={() => SelectPiece('grip', part)}>
                 <p>{part.name}</p>
                 < img src={require('../assets/images/grip/' + part.img + '.png')} alt={part.name} />
               </div>
@@ -112,7 +166,7 @@ function App() {
           <h2>Links:</h2>
           {links.map(part => {
             return (
-              <div key={part.name} onClick={() => ClosePieceSelection('link', part)}>
+              <div key={part.name} onClick={() => SelectPiece('link', part)}>
                 <p>{part.name}</p>
                 < img src={require('../assets/images/link/' + part.img + '.png')} alt={part.name} />
               </div>
