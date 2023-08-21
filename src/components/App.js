@@ -37,19 +37,20 @@ function App() {
 
   //this function is only called once in one place, but the scope will change in later versions.
   function createZaw() {
+    const zawDamage = zawParts.strike.dmg + zawParts.grip.dmgMod + zawParts.link.dmgMod;
     setZawStats({
-      speed: zawParts.grip.speed + zawParts.strike.spdMod + + zawParts.link.spdMod,
+      speed: zawParts.grip.speed + zawParts.strike.spdMod + zawParts.link.spdMod,
       type: !!zawParts.grip.type ? zawParts.strike.type2 : zawParts.strike.type1,
       //DMG
-      dmgTotal: zawParts.strike.dmg + zawParts.grip.dmgMod + zawParts.link.dmgMod,
-      dmgType: 'TBD',
+      dmgTotal: zawDamage,
+      dmgType: zawParts.strike.dmgType,
       crtChance: zawParts.strike.critChance + zawParts.link.crtMod,
-      crtMultiplier: zawParts.strike.critMulti,
+      crtMultiplier: zawParts.strike.critMulti.toFixed(1),
       statusChance: zawParts.strike.statusChance + zawParts.link.stsMod,
-      slash: 'TBD',
-      impact: 'TBD',
-      puncture: 'TBD',
-      viral: 'TBD',
+      slash: Math.round((zawDamage * (zawParts.strike.slash / 100)) * 10) / 10,
+      impact: Math.round((zawDamage * (zawParts.strike.impact / 100)) * 10) / 10,
+      puncture: Math.round((zawDamage * (zawParts.strike.puncture / 100)) * 10) / 10,
+      viral: Math.round((zawDamage * (zawParts.strike.viral / 100)) * 10) / 10,
       //heavy attack
       heavyDmg: 'TBD',
       heavySlamAtk: 'TBD',
@@ -108,10 +109,10 @@ function App() {
           <p>Type: {zawStats.type}</p>
           <p>Speed: {zawStats.speed}</p>
           <h3>DAMAGE:</h3>
-          <p>Dmg: {zawStats.dmgTotal} {`(Mainly ${dmgType})`}</p>
-          <p>Crit chance: {zawStats.crtChance}</p>
-          <p>Crit damage: {zawStats.crtMultiplier}</p>
-          <p>Status: {zawStats.statusChance}</p>
+          <p>Dmg: {zawStats.dmgTotal} {`(Mainly ${zawStats.dmgType})`}</p>
+          <p>Crit chance: {`${zawStats.crtChance}%`}</p>
+          <p>Crit damage: {`${zawStats.crtMultiplier} X`}</p>
+          <p>Status: {`${zawStats.statusChance}%`}</p>
           <h3>HEAVY ATTACK:</h3>
 
           {/*
