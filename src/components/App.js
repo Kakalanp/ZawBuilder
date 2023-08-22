@@ -110,15 +110,16 @@ function App() {
           <p>Speed: {zawStats.speed}</p>
           <h3>DAMAGE:</h3>
           <p>Dmg: {zawStats.dmgTotal} {`(Mainly ${zawStats.dmgType})`}</p>
+          <p>Slash: {zawStats.slash}</p>
+          <p>Impact: {zawStats.impact}</p>
+          <p>Puncture: {zawStats.puncture}</p>
+          {zawStats.viral > 0 && (<p>Viral: {zawStats.viral}</p>)}
           <p>Crit chance: {`${zawStats.crtChance}%`}</p>
           <p>Crit damage: {`${zawStats.crtMultiplier} X`}</p>
           <p>Status: {`${zawStats.statusChance}%`}</p>
           <h3>HEAVY ATTACK:</h3>
 
           {/*
-      impact: 'TBD',
-      puncture: 'TBD',
-      viral: 'TBD',
       //heavy attack
       heavyDmg: 'TBD',
       heavySlamAtk: 'TBD',
