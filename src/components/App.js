@@ -59,7 +59,7 @@ function App() {
       windUp: 'TBD',
       //extras
       stancePolarity: !!zawParts.grip.type ? zawParts.strike.polarity2 : zawParts.strike.polarity1,
-      range: 'TBD',
+      range: !!zawParts.grip.type ? zawParts.strike.range2 : zawParts.strike.range1,
       slamAtk: 'TBD',
       slamRadialDmg: 'TBD',
       slamRadius: 'TBD',
