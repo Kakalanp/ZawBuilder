@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import './App.css';
+import helpers from '../modules/helperFunctions';
 import grips from '../modules/grip';
 import links from '../modules/link';
 import strikes from '../modules/strike';
@@ -37,10 +38,11 @@ function App() {
 
   //this function is only called once in one place, but the scope will change in later versions.
   function createZaw() {
+    const zawType = !!zawParts.grip.type ? zawParts.strike.type2 : zawParts.strike.type1;
     const zawDamage = zawParts.strike.dmg + zawParts.grip.dmgMod + zawParts.link.dmgMod;
     setZawStats({
       speed: zawParts.grip.speed + zawParts.strike.spdMod + zawParts.link.spdMod,
-      type: !!zawParts.grip.type ? zawParts.strike.type2 : zawParts.strike.type1,
+      type: zawType,
       //DMG
       dmgTotal: zawDamage,
       dmgType: zawParts.strike.dmgType,
@@ -64,9 +66,9 @@ function App() {
       slamRadialDmg: 'TBD',
       slamRadius: 'TBD',
       slideAtk: 'TBD',
-      blockAngle: 'TBD',
+      blockAngle: helpers.getBlockAngle(zawType),
       comboDuration: 5,
-      followThrough: 'TBD',
+      followThrough: helpers.getFollowThrough(zawType),
     });
   }
 
@@ -133,9 +135,6 @@ function App() {
       slamRadialDmg: 'TBD',
       slamRadius: 'TBD',
       slideAtk: 'TBD',
-      blockAngle: 'TBD',
-      comboDuration: 5,
-      followThrough: 'TBD',
           */}
 
         </div>
