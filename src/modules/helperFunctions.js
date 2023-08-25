@@ -26,6 +26,7 @@ const getFollowThrough = (type) => {
     case 'Dagger' :
     case 'Fist' :
     case 'Sparring': return 0.9;
+    case 'Assault Saw': return 1;
   }
 };
 
@@ -57,9 +58,42 @@ const getBlockAngle = (type) => {
     case 'Tonfa': return 60
     case 'Heavy Scythe': return 65
     case 'Sword and Shield': return 70;
+    case 'Assault Saw': return 90;
   }
 };
 
-const helpers = {getFollowThrough, getBlockAngle};
+//WIP: this has to be compared to real-game stats
+const getWindup = (type) => {
+  switch(type) {
+    case 'Blade and Whip':
+    case 'Dagger':
+    case 'Gunblade':
+    case 'Whip': return 0.4
+    case 'Dual Daggers':
+    case 'Nikana':
+    case 'Nunchaku':
+    case 'Rapier':
+    case 'Sparring':
+    case 'Staff':
+    case 'Warfan': return 0.5;
+    case 'Claws':
+    case 'Fist' :
+    case 'Glaive':
+    case 'Sword': return 0.6;
+    case 'Dual Swords':
+    case 'Machete':
+    case 'Sword and Shield':
+    case 'Tonfa':
+    case 'Two-Handed Nikana': return 0.7;
+    case 'Polearm': return 0.9;
+    case 'Assault Saw':
+    case 'Scythe':
+    case 'Heavy Scythe': return 1.0;
+    case 'Heavy Blade': return 1.1;
+    case 'Hammer': return 1.2;
+  }
+};
+
+const helpers = {getFollowThrough, getBlockAngle, getWindup};
 
 export default helpers;

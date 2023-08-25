@@ -54,18 +54,18 @@ function App() {
       puncture: Math.round((zawDamage * (zawParts.strike.puncture / 100)) * 10) / 10,
       viral: Math.round((zawDamage * (zawParts.strike.viral / 100)) * 10) / 10,
       //heavy attack
-      heavyDmg: 'TBD',
-      heavySlamAtk: 'TBD',
-      heavySlamRadialDmg: 'TBD',
-      heavySlamRadius: 'TBD',
-      windUp: 'TBD',
+      heavyDmg: 'WIP',
+      heavySlamAtk: 'WIP',
+      heavySlamRadialDmg: 'WIP',
+      heavySlamRadius: 'WIP',
+      windUp: helpers.getWindup(zawType),
       //extras
       stancePolarity: !!zawParts.grip.type ? zawParts.strike.polarity2 : zawParts.strike.polarity1,
       range: !!zawParts.grip.type ? zawParts.strike.range2 : zawParts.strike.range1,
-      slamAtk: 'TBD',
-      slamRadialDmg: 'TBD',
-      slamRadius: 'TBD',
-      slideAtk: 'TBD',
+      slamAtk: 'WIP',
+      slamRadialDmg: 'WIP',
+      slamRadius: 'WIP',
+      slideAtk: 'WIP',
       blockAngle: helpers.getBlockAngle(zawType),
       comboDuration: 5,
       followThrough: helpers.getFollowThrough(zawType),
@@ -111,7 +111,7 @@ function App() {
           <p>Type: {zawStats.type}</p>
           <p>Speed: {zawStats.speed}</p>
           <h3>DAMAGE:</h3>
-          <p>Dmg: {zawStats.dmgTotal} {`(Mainly ${zawStats.dmgType})`}</p>
+          <p>Dmg: {zawStats.dmgTotal} {`(Mainly ${zawStats.dmgType}, ${zawParts.strike[zawStats.dmgType]}%)`}</p>
           <p>Slash: {zawStats.slash}</p>
           <p>Impact: {zawStats.impact}</p>
           <p>Puncture: {zawStats.puncture}</p>
@@ -119,22 +119,18 @@ function App() {
           <p>Crit chance: {`${zawStats.crtChance}%`}</p>
           <p>Crit damage: {`${zawStats.crtMultiplier} X`}</p>
           <p>Status: {`${zawStats.statusChance}%`}</p>
-          <h3>HEAVY ATTACK:</h3>
 
           {/*
-      //heavy attack
-      heavyDmg: 'TBD',
-      heavySlamAtk: 'TBD',
-      heavySlamRadialDmg: 'TBD',
-      heavySlamRadius: 'TBD',
-      windUp: 'TBD',
-      //extras
-      stancePolarity: 'TBD',
-      range: 'TBD',
-      slamAtk: 'TBD',
-      slamRadialDmg: 'TBD',
-      slamRadius: 'TBD',
-      slideAtk: 'TBD',
+            //heavy attack
+            heavyDmg: 'WIP',
+            heavySlamAtk: 'WIP',
+            heavySlamRadialDmg: 'WIP',
+            heavySlamRadius: 'WIP',
+            //extras
+            slamAtk: 'WIP',
+            slamRadialDmg: 'WIP',
+            slamRadius: 'WIP',
+            slideAtk: 'WIP',
           */}
 
         </div>
