@@ -24,6 +24,11 @@ function App() {
     }
   },[zawParts])
 
+  // Let's hope I don't forget to delete this later
+  useEffect(() => {
+    console.log(zawStats)
+  },[zawStats])
+
   function OpenPieceSelection(piece) {
     document.getElementById(`${piece}-selector`).classList.remove('disabled');
     document.getElementById('builder').classList.add('disabled');
@@ -62,9 +67,9 @@ function App() {
       //extras
       stancePolarity: !!zawParts.grip.type ? zawParts.strike.polarity2 : zawParts.strike.polarity1,
       range: !!zawParts.grip.type ? zawParts.strike.range2 : zawParts.strike.range1,
-      slamAtk: 'WIP',
-      slamRadialDmg: 'WIP',
-      slamRadius: 'WIP',
+      slamAtk: (helpers.getSlamMultiplier(zawType)) * zawDamage,
+      slamRadialDmg: zawDamage,
+      slamRadius: `${helpers.getSlamRadius(zawType)}m`,
       slideAtk: 'WIP',
       blockAngle: helpers.getBlockAngle(zawType),
       comboDuration: 5,

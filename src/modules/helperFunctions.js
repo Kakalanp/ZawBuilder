@@ -94,6 +94,50 @@ const getWindup = (type) => {
   }
 };
 
-const helpers = {getFollowThrough, getBlockAngle, getWindup};
+//WIP: this has to be compared to real-game stats
+const getSlamMultiplier = (type) => {
+  switch(type) {
+    case 'Dagger':
+    case 'Dual Daggers':
+    case 'Nunchaku':
+    case 'Dual Swords':
+    case 'Tonfa': return 2;
+    default: return 3
+  }
+}
+
+//WIP: this has to be compared to real-game stats
+const getSlamRadius = (type) => {
+  switch(type) {
+    case 'Dagger':
+    case 'Glaive':
+    case 'Gunblade':
+    case 'Warfan':
+    case 'Whip': return 5;
+    case 'Dual Daggers':
+    case 'Nunchaku':
+    case 'Claws':
+    case 'Nikana':
+    case 'Rapier':
+    case 'Staff': return 6;
+    case 'Assault Saw':
+    case 'Blade and Whip':
+    case 'Polearm':
+    case 'Sparring':
+    case 'Sword':
+    case 'Sword and Shield':
+    case 'Two-Handed Nikana': return 7;
+    case 'Dual Swords':
+    case 'Tonfa':
+    case 'Fist' :
+    case 'Heavy Blade':
+    case 'Heavy Scythe':
+    case 'Machete':
+    case 'Scythe': return 8
+    case 'Hammer': return 9;
+  }
+}
+
+const helpers = {getFollowThrough, getBlockAngle, getWindup, getSlamMultiplier, getSlamRadius};
 
 export default helpers;
