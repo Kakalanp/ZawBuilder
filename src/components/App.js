@@ -1,54 +1,53 @@
 import React, { useState, useEffect } from 'react'
-import './App.css';
-import helpers from '../modules/helperFunctions';
-import grips from '../modules/grip';
-import links from '../modules/link';
-import strikes from '../modules/strike';
+import './App.css'
+import helpers from '../modules/helperFunctions'
+import grips from '../modules/grip'
+import links from '../modules/link'
+import strikes from '../modules/strike'
 
-function App() {
-
+function App () {
   const [zawParts, setZawParts] = useState({
     strike: {},
     grip: {},
     link: {}
-  });
+  })
 
-  const [zawStats, setZawStats] = useState({});
+  const [zawStats, setZawStats] = useState({})
 
   useEffect(() => {
-    if ((Object.keys(zawParts.strike).length !== 0) && 
+    if ((Object.keys(zawParts.strike).length !== 0) &&
         (Object.keys(zawParts.grip).length !== 0) &&
         (Object.keys(zawParts.link).length !== 0)) {
-          createZaw();
-          document.getElementById('finalZaw').classList.remove('disabled');
+      createZaw()
+      document.getElementById('finalZaw').classList.remove('disabled')
     }
-  },[zawParts])
+  }, [zawParts])
 
   // Let's hope I don't forget to delete this later
   useEffect(() => {
     console.log(zawStats)
-  },[zawStats])
+  }, [zawStats])
 
-  function OpenPieceSelection(piece) {
-    document.getElementById(`${piece}-selector`).classList.remove('disabled');
-    document.getElementById('builder').classList.add('disabled');
+  function OpenPieceSelection (piece) {
+    document.getElementById(`${piece}-selector`).classList.remove('disabled')
+    document.getElementById('builder').classList.add('disabled')
   }
 
-  function SelectPiece(piece, part) {
-    document.getElementById(`${piece}-selector`).classList.add('disabled');
-    document.getElementById('builder').classList.remove('disabled');
+  function SelectPiece (piece, part) {
+    document.getElementById(`${piece}-selector`).classList.add('disabled')
+    document.getElementById('builder').classList.remove('disabled')
 
-    setZawParts({...zawParts, [piece]: {...part}})
+    setZawParts({ ...zawParts, [piece]: { ...part } })
   }
 
-  //this function is only called once in one place, but the scope will change in later versions.
-  function createZaw() {
-    const zawType = !!zawParts.grip.type ? zawParts.strike.type2 : zawParts.strike.type1;
-    const zawDamage = zawParts.strike.dmg + zawParts.grip.dmgMod + zawParts.link.dmgMod;
+  // this function is only called once in one place, but the scope will change in later versions.
+  function createZaw () {
+    const zawType = zawParts.grip.type ? zawParts.strike.type2 : zawParts.strike.type1
+    const zawDamage = zawParts.strike.dmg + zawParts.grip.dmgMod + zawParts.link.dmgMod
     setZawStats({
       speed: zawParts.grip.speed + zawParts.strike.spdMod + zawParts.link.spdMod,
       type: zawType,
-      //DMG
+      // DMG
       dmgTotal: zawDamage,
       dmgType: zawParts.strike.dmgType,
       crtChance: zawParts.strike.critChance + zawParts.link.crtMod,
@@ -58,26 +57,26 @@ function App() {
       impact: Math.round((zawDamage * (zawParts.strike.impact / 100)) * 10) / 10,
       puncture: Math.round((zawDamage * (zawParts.strike.puncture / 100)) * 10) / 10,
       viral: Math.round((zawDamage * (zawParts.strike.viral / 100)) * 10) / 10,
-      //heavy attack
+      // heavy attack
       heavyDmg: 'WIP',
       heavySlamAtk: 'WIP',
       heavySlamRadialDmg: 'WIP',
       heavySlamRadius: 'WIP',
       windUp: helpers.getWindup(zawType),
-      //extras
-      stancePolarity: !!zawParts.grip.type ? zawParts.strike.polarity2 : zawParts.strike.polarity1,
-      range: !!zawParts.grip.type ? zawParts.strike.range2 : zawParts.strike.range1,
+      // extras
+      stancePolarity: zawParts.grip.type ? zawParts.strike.polarity2 : zawParts.strike.polarity1,
+      range: zawParts.grip.type ? zawParts.strike.range2 : zawParts.strike.range1,
       slamAtk: (helpers.getSlamMultiplier(zawType)) * zawDamage,
       slamRadialDmg: zawDamage,
       slamRadius: `${helpers.getSlamRadius(zawType)}m`,
       slideAtk: 'WIP',
       blockAngle: helpers.getBlockAngle(zawType),
       comboDuration: 5,
-      followThrough: helpers.getFollowThrough(zawType),
-    });
+      followThrough: helpers.getFollowThrough(zawType)
+    })
   }
 
-  return(
+  return (
     <>
       <div id='builder'>
         <div className='piece' onClick={() => OpenPieceSelection('strike')}>
@@ -150,7 +149,7 @@ function App() {
                 <p>{part.name}</p>
                 < img src={require('../assets/images/strike/' + part.img + '.png')} alt={part.name} />
               </div>
-            );
+            )
           })}
         </div>
         <div id='grip-selector' className='disabled'>
@@ -161,7 +160,7 @@ function App() {
                 <p>{part.name}</p>
                 < img src={require('../assets/images/grip/' + part.img + '.png')} alt={part.name} />
               </div>
-            );
+            )
           })}
         </div>
         <div id='link-selector' className='disabled'>
@@ -172,7 +171,7 @@ function App() {
                 <p>{part.name}</p>
                 < img src={require('../assets/images/link/' + part.img + '.png')} alt={part.name} />
               </div>
-            );
+            )
           })}
         </div>
       </div>
@@ -180,4 +179,4 @@ function App() {
   )
 }
 
-export default App;
+export default App
