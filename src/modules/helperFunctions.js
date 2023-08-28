@@ -169,6 +169,195 @@ const getHeavyMultiplier = (type) => {
   }
 }
 
+// WIP, Missing: slam radius, heavy multiplier, heavy slam, heavy slam radius
+const getExtraStats = (type) => {
+  switch (type) {
+    case 'Assault Saw':
+      return {
+        followThrough: 1,
+        blockAngle: 90,
+        windup: 1.0,
+        slamMultiplier: 3
+
+      }
+    case 'Blade and Whip':
+      return {
+        followThrough: 0.5,
+        blockAngle: 60,
+        windup: 0.4,
+        slamMultiplier: 3
+      }
+    case 'Claws':
+      return {
+        followThrough: 0.8,
+        blockAngle: 55,
+        windup: 0.6,
+        slamMultiplier: 3
+      }
+    case 'Dagger':
+      return {
+        followThrough: 0.9,
+        blockAngle: 45,
+        windup: 0.4,
+        slamMultiplier: 2
+      }
+    case 'Dual Daggers':
+      return {
+        followThrough: 0.8,
+        blockAngle: 50,
+        windup: 0.5,
+        slamMultiplier: 2
+      }
+    case 'Dual Swords':
+      return {
+        followThrough: 0.5,
+        blockAngle: 60,
+        windup: 0.7,
+        slamMultiplier: 2
+      }
+    case 'Fist':
+      return {
+        followThrough: 0.9,
+        blockAngle: 50,
+        windup: 0.6,
+        slamMultiplier: 3
+      }
+    case 'Glaive':
+      return {
+        followThrough: 0.7,
+        blockAngle: 55,
+        windup: 0.6,
+        slamMultiplier: 3
+      }
+    case 'Gunblade':
+      return {
+        followThrough: 0.5,
+        blockAngle: 45,
+        windup: 0.4,
+        slamMultiplier: 3
+      }
+    case 'Hammer':
+      return {
+        followThrough: 0.4,
+        blockAngle: 50,
+        windup: 1.2,
+        slamMultiplier: 3
+      }
+    case 'Heavy Blade':
+      return {
+        followThrough: 0.6,
+        blockAngle: 55,
+        windup: 1.1,
+        slamMultiplier: 3
+      }
+    case 'Heavy Scythe':
+      return {
+        followThrough: 0.4,
+        blockAngle: 65,
+        windup: 1.0,
+        slamMultiplier: 3
+      }
+    case 'Machete':
+      return {
+        followThrough: 0.7,
+        blockAngle: 55,
+        windup: 0.7,
+        slamMultiplier: 3
+      }
+    case 'Nikana':
+      return {
+        followThrough: 0.7,
+        blockAngle: 55,
+        windup: 0.5,
+        slamMultiplier: 3
+      }
+    case 'Nunchaku':
+      return {
+        followThrough: 0.5,
+        blockAngle: 55,
+        windup: 0.5,
+        slamMultiplier: 2
+      }
+    case 'Polearm':
+      return {
+        followThrough: 0.6,
+        blockAngle: 55,
+        windup: 0.9,
+        slamMultiplier: 3
+      }
+    case 'Rapier':
+      return {
+        followThrough: 0.7,
+        blockAngle: 60,
+        windup: 0.5,
+        slamMultiplier: 3
+      }
+    case 'Scythe':
+      return {
+        followThrough: 0.6,
+        blockAngle: 60,
+        windup: 1.0,
+        slamMultiplier: 3
+      }
+    case 'Sparring':
+      return {
+        followThrough: 0.9,
+        blockAngle: 50,
+        windup: 0.5,
+        slamMultiplier: 3
+      }
+    case 'Staff':
+      return {
+        followThrough: 0.5,
+        blockAngle: 60,
+        windup: 0.5,
+        slamMultiplier: 3
+      }
+    case 'Sword':
+      return {
+        followThrough: 0.6,
+        blockAngle: 55,
+        windup: 0.6,
+        slamMultiplier: 3
+      }
+    case 'Sword and Shield':
+      return {
+        followThrough: 0.6,
+        blockAngle: 70,
+        windup: 0.7,
+        slamMultiplier: 3
+      }
+    case 'Tonfa':
+      return {
+        followThrough: 0.6,
+        blockAngle: 60,
+        windup: 0.7,
+        slamMultiplier: 2
+      }
+    case 'Two-Handed Nikana':
+      return {
+        followThrough: 0.7,
+        blockAngle: 55,
+        windup: 0.7,
+        slamMultiplier: 3
+      }
+    case 'Warfan':
+      return {
+        followThrough: 0.7,
+        blockAngle: 55,
+        windup: 0.5,
+        slamMultiplier: 3
+      }
+    case 'Whip':
+      return {
+        followThrough: 0.5,
+        blockAngle: 45,
+        windup: 0.4,
+        slamMultiplier: 3
+      }
+  }
+}
+
 const helpers = { getFollowThrough, getBlockAngle, getWindup, getSlamMultiplier, getSlamRadius, getHeavyMultiplier }
 
 export default helpers
