@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import './App.css'
-import helpers from '../modules/helperFunctions'
+import getExtraStats from '../modules/helperFunctions'
 import grips from '../modules/grip'
 import links from '../modules/link'
 import strikes from '../modules/strike'
@@ -44,6 +44,7 @@ function App () {
   function createZaw () {
     const zawType = zawParts.grip.type ? zawParts.strike.type2 : zawParts.strike.type1
     const zawDamage = zawParts.strike.dmg + zawParts.grip.dmgMod + zawParts.link.dmgMod
+    const zawExtraStats = getExtraStats(zawType)
     setZawStats({
       speed: zawParts.grip.speed + zawParts.strike.spdMod + zawParts.link.spdMod,
       type: zawType,
@@ -62,17 +63,17 @@ function App () {
       heavySlamAtk: 'WIP',
       heavySlamRadialDmg: 'WIP',
       heavySlamRadius: 'WIP',
-      windUp: helpers.getWindup(zawType),
+      windUp: zawExtraStats.windUp,
       // extras
       stancePolarity: zawParts.grip.type ? zawParts.strike.polarity2 : zawParts.strike.polarity1,
       range: zawParts.grip.type ? zawParts.strike.range2 : zawParts.strike.range1,
-      slamAtk: (helpers.getSlamMultiplier(zawType)) * zawDamage,
+      slamAtk: zawExtraStats.slamMultiplier * zawDamage,
       slamRadialDmg: zawDamage,
-      slamRadius: `${helpers.getSlamRadius(zawType)}m`,
+      slamRadius: `${zawExtraStats.slamRadius}m`,
       slideAtk: 'WIP',
-      blockAngle: helpers.getBlockAngle(zawType),
+      blockAngle: zawExtraStats.blockAngle,
       comboDuration: 5,
-      followThrough: helpers.getFollowThrough(zawType)
+      followThrough: zawExtraStats.followThrough
     })
   }
 
