@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import './App.css'
-import helpers from '../modules/helperFunctions'
+import getExtraStats from '../modules/helperFunctions'
 import grips from '../modules/grip'
 import links from '../modules/link'
 import strikes from '../modules/strike'
@@ -44,6 +44,7 @@ function App () {
   function createZaw () {
     const zawType = zawParts.grip.type ? zawParts.strike.type2 : zawParts.strike.type1
     const zawDamage = zawParts.strike.dmg + zawParts.grip.dmgMod + zawParts.link.dmgMod
+    const zawExtraStats = getExtraStats(zawType)
     setZawStats({
       speed: zawParts.grip.speed + zawParts.strike.spdMod + zawParts.link.spdMod,
       type: zawType,
@@ -58,21 +59,21 @@ function App () {
       puncture: Math.round((zawDamage * (zawParts.strike.puncture / 100)) * 10) / 10,
       viral: Math.round((zawDamage * (zawParts.strike.viral / 100)) * 10) / 10,
       // heavy attack
-      heavyDmg: 'WIP',
-      heavySlamAtk: 'WIP',
-      heavySlamRadialDmg: 'WIP',
-      heavySlamRadius: 'WIP',
-      windUp: helpers.getWindup(zawType),
+      heavyDmg: zawExtraStats.heavyMultiplier * zawDamage,
+      heavySlamAtk: zawExtraStats.heavySlamMultiplier * zawDamage,
+      heavySlamRadialDmg: zawExtraStats.heavySlamMultiplier * zawDamage,
+      heavySlamRadius: 'WIP', // No info on wiki, have to do my own research
+      windUp: zawExtraStats.windUp,
       // extras
       stancePolarity: zawParts.grip.type ? zawParts.strike.polarity2 : zawParts.strike.polarity1,
       range: zawParts.grip.type ? zawParts.strike.range2 : zawParts.strike.range1,
-      slamAtk: (helpers.getSlamMultiplier(zawType)) * zawDamage,
+      slamAtk: zawExtraStats.slamMultiplier * zawDamage,
       slamRadialDmg: zawDamage,
-      slamRadius: `${helpers.getSlamRadius(zawType)}m`,
-      slideAtk: 'WIP',
-      blockAngle: helpers.getBlockAngle(zawType),
+      slamRadius: `${zawExtraStats.slamRadius}m`,
+      slideAtk: 'WIP', // No info on wiki, have to do my own research
+      blockAngle: zawExtraStats.blockAngle,
       comboDuration: 5,
-      followThrough: helpers.getFollowThrough(zawType)
+      followThrough: zawExtraStats.followThrough
     })
   }
 
@@ -114,6 +115,7 @@ function App () {
           <h3>PRIMARY:</h3>
           <p>Type: {zawStats.type}</p>
           <p>Speed: {zawStats.speed}</p>
+          <p>Range: {zawStats.range}</p>
           <h3>DAMAGE:</h3>
           <p>Dmg: {zawStats.dmgTotal} {`(Mainly ${zawStats.dmgType}, ${zawParts.strike[zawStats.dmgType]}%)`}</p>
           <p>Slash: {zawStats.slash}</p>
@@ -123,20 +125,6 @@ function App () {
           <p>Crit chance: {`${zawStats.crtChance}%`}</p>
           <p>Crit damage: {`${zawStats.crtMultiplier} X`}</p>
           <p>Status: {`${zawStats.statusChance}%`}</p>
-
-          {/*
-            //heavy attack
-            heavyDmg: 'WIP',
-            heavySlamAtk: 'WIP',
-            heavySlamRadialDmg: 'WIP',
-            heavySlamRadius: 'WIP',
-            //extras
-            slamAtk: 'WIP',
-            slamRadialDmg: 'WIP',
-            slamRadius: 'WIP',
-            slideAtk: 'WIP',
-          */}
-
         </div>
       </div>
 
