@@ -59,10 +59,10 @@ function App () {
       puncture: Math.round((zawDamage * (zawParts.strike.puncture / 100)) * 10) / 10,
       viral: Math.round((zawDamage * (zawParts.strike.viral / 100)) * 10) / 10,
       // heavy attack
-      heavyDmg: 'WIP',
-      heavySlamAtk: 'WIP',
-      heavySlamRadialDmg: 'WIP',
-      heavySlamRadius: 'WIP',
+      heavyDmg: zawExtraStats.heavyMultiplier * zawDamage,
+      heavySlamAtk: zawExtraStats.heavySlamMultiplier * zawDamage,
+      heavySlamRadialDmg: zawExtraStats.heavySlamMultiplier * zawDamage,
+      heavySlamRadius: 'WIP', // No info on wiki, have to do my own research
       windUp: zawExtraStats.windUp,
       // extras
       stancePolarity: zawParts.grip.type ? zawParts.strike.polarity2 : zawParts.strike.polarity1,
@@ -70,7 +70,7 @@ function App () {
       slamAtk: zawExtraStats.slamMultiplier * zawDamage,
       slamRadialDmg: zawDamage,
       slamRadius: `${zawExtraStats.slamRadius}m`,
-      slideAtk: 'WIP',
+      slideAtk: 'WIP', // No info on wiki, have to do my own research
       blockAngle: zawExtraStats.blockAngle,
       comboDuration: 5,
       followThrough: zawExtraStats.followThrough
@@ -115,6 +115,7 @@ function App () {
           <h3>PRIMARY:</h3>
           <p>Type: {zawStats.type}</p>
           <p>Speed: {zawStats.speed}</p>
+          <p>Range: {zawStats.range}</p>
           <h3>DAMAGE:</h3>
           <p>Dmg: {zawStats.dmgTotal} {`(Mainly ${zawStats.dmgType}, ${zawParts.strike[zawStats.dmgType]}%)`}</p>
           <p>Slash: {zawStats.slash}</p>
@@ -124,20 +125,6 @@ function App () {
           <p>Crit chance: {`${zawStats.crtChance}%`}</p>
           <p>Crit damage: {`${zawStats.crtMultiplier} X`}</p>
           <p>Status: {`${zawStats.statusChance}%`}</p>
-
-          {/*
-            //heavy attack
-            heavyDmg: 'WIP',
-            heavySlamAtk: 'WIP',
-            heavySlamRadialDmg: 'WIP',
-            heavySlamRadius: 'WIP',
-            //extras
-            slamAtk: 'WIP',
-            slamRadialDmg: 'WIP',
-            slamRadius: 'WIP',
-            slideAtk: 'WIP',
-          */}
-
         </div>
       </div>
 
