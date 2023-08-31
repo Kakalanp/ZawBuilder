@@ -77,6 +77,11 @@ function App () {
     })
   }
 
+  const rotate = (e) => {
+    if (e.target.classList.contains('part-back')) e.target.parentElement.classList.toggle('rotated')
+    else e.target.classList.toggle('rotated')
+  }
+
   return (
     <>
       <div id='builder'>
@@ -109,6 +114,73 @@ function App () {
         </div>
       </div>
 
+      <div className='selector'>
+        <div id='strike-selector' className='disabled'>
+          <h2>Strikes:</h2>
+          <div className='part-layout'>
+            {strikes.map(part => {
+              return (
+                <div key={part.name}>
+                  <div className="part-inner" onClick={rotate}>
+                    <div className="part-front">
+                      <img src={require('../assets/images/strike/' + part.img + '.png')} alt={part.name} />
+                      <p className='part-name'>{part.name}</p>
+                    </div>
+                    <div className="part-back" onClick={() => SelectPiece('strike', part)}>
+                      <h3>{part.name}</h3>
+                      <p>{part.spdMod === 0 ? '' : (part.spdMod > 0 ? `Speed: +${part.spdMod}` : `Speed: ${part.spdMod}`)}</p>
+                      <p>Total damage: {part.dmg}</p>
+                      <p>Crit chance: {`${part.critChance}%`}</p>
+                      <p>Crit damage: {`${part.critMulti} X`}</p>
+                      <p>Status: {`${part.statusChance}%`}</p>
+                    </div>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+        <div id='grip-selector' className='disabled'>
+          <h2>Grips:</h2>
+          <div className='part-layout'>
+            {grips.map(part => {
+              return (
+                <div key={part.name}>
+                  <div className="part-inner" onClick={rotate}>
+                    <div className="part-front">
+                      <img src={require('../assets/images/grip/' + part.img + '.png')} alt={part.name} />
+                      <p className='part-name'>{part.name}</p>
+                    </div>
+                    <div className="part-back" onClick={() => SelectPiece('grip', part)}>
+                      <h3>{part.name}</h3>
+                    </div>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+        <div id='link-selector' className='disabled'>
+          <h2>Links:</h2>
+          <div className='part-layout'>
+            {links.map(part => {
+              return (
+                <div key={part.name}>
+                  <div className="part-inner" onClick={rotate}>
+                    <div className="part-front">
+                      <img src={require('../assets/images/link/' + part.img + '.png')} alt={part.name} />
+                      <p className='part-name'>{part.name}</p>
+                    </div>
+                    <div className="part-back" onClick={() => SelectPiece('link', part)}>
+                      <h3>{part.name}</h3>
+                    </div>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+      </div>
       <div id='finalZaw' className='disabled'>
         <div id='zaRender'></div>
         <div id='zawStats'>
@@ -117,7 +189,7 @@ function App () {
           <p>Speed: {zawStats.speed}</p>
           <p>Range: {zawStats.range}</p>
           <h3>DAMAGE:</h3>
-          <p>Dmg: {zawStats.dmgTotal} {`(Mainly ${zawStats.dmgType}, ${zawParts.strike[zawStats.dmgType]}%)`}</p>
+          <p>Damage: {zawStats.dmgTotal} {`(Mainly ${zawStats.dmgType}, ${zawParts.strike[zawStats.dmgType]}%)`}</p>
           <p>Slash: {zawStats.slash}</p>
           <p>Impact: {zawStats.impact}</p>
           <p>Puncture: {zawStats.puncture}</p>
@@ -128,41 +200,6 @@ function App () {
         </div>
       </div>
 
-      <div className='selector'>
-        <div id='strike-selector' className='disabled'>
-          <h2>Strikes:</h2>
-          {strikes.map(part => {
-            return (
-              <div key={part.name} onClick={() => SelectPiece('strike', part)}>
-                <p>{part.name}</p>
-                < img src={require('../assets/images/strike/' + part.img + '.png')} alt={part.name} />
-              </div>
-            )
-          })}
-        </div>
-        <div id='grip-selector' className='disabled'>
-          <h2>Grips:</h2>
-          {grips.map(part => {
-            return (
-              <div key={part.name} onClick={() => SelectPiece('grip', part)}>
-                <p>{part.name}</p>
-                < img src={require('../assets/images/grip/' + part.img + '.png')} alt={part.name} />
-              </div>
-            )
-          })}
-        </div>
-        <div id='link-selector' className='disabled'>
-          <h2>Links:</h2>
-          {links.map(part => {
-            return (
-              <div key={part.name} onClick={() => SelectPiece('link', part)}>
-                <p>{part.name}</p>
-                < img src={require('../assets/images/link/' + part.img + '.png')} alt={part.name} />
-              </div>
-            )
-          })}
-        </div>
-      </div>
     </>
   )
 }
