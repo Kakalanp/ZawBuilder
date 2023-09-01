@@ -78,8 +78,13 @@ function App () {
   }
 
   const rotate = (e) => {
-    if (e.target.classList.contains('part-back')) e.target.parentElement.classList.toggle('rotated')
-    else e.target.classList.toggle('rotated')
+    if (e.target.classList.contains('part-back')) {
+      const rotatedElements = document.getElementsByClassName('rotated')
+      const rotatedElementsCount = rotatedElements.length
+      for (let i = 0; i < rotatedElementsCount; i++) {
+        rotatedElements[0].classList.remove('rotated')
+      }
+    } else e.target.classList.toggle('rotated')
   }
 
   return (
