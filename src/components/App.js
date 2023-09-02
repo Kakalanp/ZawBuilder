@@ -42,11 +42,12 @@ function App () {
 
   // this function is only called once in one place, but the scope will change in later versions.
   function createZaw () {
+    const finalDamageMultiplier = zawParts.grip.type ? zawParts.strike.twoHandedMultiplier : 1
     const zawType = zawParts.grip.type ? zawParts.strike.type2 : zawParts.strike.type1
-    const zawDamage = zawParts.strike.dmg + zawParts.grip.dmgMod + zawParts.link.dmgMod
+    const zawDamage = ((zawParts.strike.dmg + zawParts.grip.dmgMod + zawParts.link.dmgMod) * finalDamageMultiplier).toFixed()
     const zawExtraStats = getExtraStats(zawType)
     setZawStats({
-      speed: zawParts.grip.speed + zawParts.strike.spdMod + zawParts.link.spdMod,
+      speed: (zawParts.grip.speed + zawParts.strike.spdMod + zawParts.link.spdMod).toFixed(3),
       type: zawType,
       // DMG
       dmgTotal: zawDamage,
@@ -194,14 +195,14 @@ function App () {
           <p>Speed: {zawStats.speed}</p>
           <p>Range: {zawStats.range}</p>
           <h3>DAMAGE:</h3>
-          <p>Damage: {zawStats.dmgTotal} {`(Mainly ${zawStats.dmgType}, ${zawParts.strike[zawStats.dmgType]}%)`}</p>
-          <p>Slash: {zawStats.slash}</p>
-          <p>Impact: {zawStats.impact}</p>
-          <p>Puncture: {zawStats.puncture}</p>
-          {zawStats.viral > 0 && (<p>Viral: {zawStats.viral}</p>)}
           <p>Crit chance: {`${zawStats.crtChance}%`}</p>
           <p>Crit damage: {`${zawStats.crtMultiplier} X`}</p>
           <p>Status: {`${zawStats.statusChance}%`}</p>
+          <p>Impact: {zawStats.impact}</p>
+          <p>Puncture: {zawStats.puncture}</p>
+          <p>Slash: {zawStats.slash}</p>
+          {zawStats.viral > 0 && (<p>Viral: {zawStats.viral}</p>)}
+          <p>Total: {zawStats.dmgTotal} {`(Mainly ${zawStats.dmgType}, ${zawParts.strike[zawStats.dmgType]}%)`}</p>
         </div>
       </div>
 

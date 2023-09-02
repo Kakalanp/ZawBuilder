@@ -16,7 +16,8 @@ const balla = {
   critChance: 18,
   critMulti: 2,
   statusChance: 18,
-  img: 'balla'
+  img: 'balla',
+  twoHandedMultiplier: 1
 }
 
 const cyath = {
@@ -37,7 +38,8 @@ const cyath = {
   critChance: 18,
   critMulti: 2,
   statusChance: 18,
-  img: 'cyath'
+  img: 'cyath',
+  twoHandedMultiplier: 1.08
 }
 
 const dehtat = {
@@ -58,7 +60,8 @@ const dehtat = {
   critChance: 18,
   critMulti: 2,
   statusChance: 18,
-  img: 'dehtat'
+  img: 'dehtat',
+  twoHandedMultiplier: 1.09
 }
 
 const dokrahm = {
@@ -79,7 +82,8 @@ const dokrahm = {
   critChance: 18,
   critMulti: 2,
   statusChance: 18,
-  img: 'dokrahm'
+  img: 'dokrahm',
+  twoHandedMultiplier: 0.93
 }
 
 const kronsh = {
@@ -100,7 +104,8 @@ const kronsh = {
   critChance: 18,
   critMulti: 2,
   statusChance: 18,
-  img: 'kronsh'
+  img: 'kronsh',
+  twoHandedMultiplier: 1.07
 }
 
 const mewan = {
@@ -121,7 +126,8 @@ const mewan = {
   critChance: 18,
   critMulti: 2,
   statusChance: 18,
-  img: 'mewan'
+  img: 'mewan',
+  twoHandedMultiplier: 1.09
 }
 
 const ooltha = {
@@ -142,7 +148,8 @@ const ooltha = {
   critChance: 18,
   critMulti: 2,
   statusChance: 18,
-  img: 'ooltha'
+  img: 'ooltha',
+  twoHandedMultiplier: 1
 }
 
 const rabvee = {
@@ -163,7 +170,8 @@ const rabvee = {
   critChance: 18,
   critMulti: 2,
   statusChance: 18,
-  img: 'rabvee'
+  img: 'rabvee',
+  twoHandedMultiplier: 1.08
 }
 
 const sepfahn = {
@@ -184,7 +192,8 @@ const sepfahn = {
   critChance: 20,
   critMulti: 2,
   statusChance: 20,
-  img: 'sepfahn'
+  img: 'sepfahn',
+  twoHandedMultiplier: 1
 }
 
 const plagueKeewar = {
@@ -205,7 +214,8 @@ const plagueKeewar = {
   critChance: 18,
   critMulti: 2,
   statusChance: 22,
-  img: 'plague-keewar'
+  img: 'plague-keewar',
+  twoHandedMultiplier: 0.85
 }
 
 const plagueKripath = {
@@ -226,7 +236,8 @@ const plagueKripath = {
   critChance: 22,
   critMulti: 2.2,
   statusChance: 18,
-  img: 'plague-kripath'
+  img: 'plague-kripath',
+  twoHandedMultiplier: 1.08
 }
 
 const strikes = [balla, cyath, dehtat, dokrahm, kronsh, mewan, ooltha, rabvee, sepfahn, plagueKeewar, plagueKripath]
