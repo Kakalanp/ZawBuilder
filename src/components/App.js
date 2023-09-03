@@ -134,7 +134,7 @@ function App () {
                     </div>
                     <div className="part-back" onClick={() => SelectPiece('strike', part)}>
                       <h3>{part.name}</h3>
-                      <p>{part.spdMod === 0 ? '' : (part.spdMod > 0 ? `Speed: +${part.spdMod}` : `Speed: ${part.spdMod}`)}</p>
+                      <p>{part.spdMod === 0 ? '' : `Speed: ${part.spdMod > 0 ? '+' : ''}${part.spdMod}`}</p>
                       <p>Total damage: {part.dmg}</p>
                       <p>Crit chance: {`${part.critChance}%`}</p>
                       <p>Crit damage: {`${part.critMulti} X`}</p>
@@ -159,6 +159,9 @@ function App () {
                     </div>
                     <div className="part-back" onClick={() => SelectPiece('grip', part)}>
                       <h3>{part.name}</h3>
+                      <p>Speed: {part.speed}</p>
+                      <p>{part.type ? 'Two' : 'One'}-handed</p>
+                      <p>{part.dmgMod === 0 ? '' : `Damage: ${part.dmgMod > 0 ? '+' : ''}${part.dmgMod}`}</p>
                     </div>
                   </div>
                 </div>
@@ -179,6 +182,10 @@ function App () {
                     </div>
                     <div className="part-back" onClick={() => SelectPiece('link', part)}>
                       <h3>{part.name}</h3>
+                      <p>{part.spdMod === 0 ? '' : `Speed: ${part.spdMod > 0 ? '+' : ''}${part.spdMod}`}</p>
+                      <p>{part.dmgMod === 0 ? '' : `Damage: ${part.dmgMod > 0 ? '+' : ''}${part.dmgMod}`}</p>
+                      <p>{part.crtMod === 0 ? '' : `Crit chance: ${part.crtMod > 0 ? '+' : ''}${part.crtMod}`}</p>
+                      <p>{part.stsMod === 0 ? '' : `Status chance: ${part.stsMod > 0 ? '+' : ''}${part.stsMod}`}</p>
                     </div>
                   </div>
                 </div>
