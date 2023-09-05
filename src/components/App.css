@@ -7,21 +7,29 @@ body {
 #root {
   display: flex;
   padding: 40px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .disabled {
   display: none;
 }
 
+.piece {
+  display: flex;
+  justify-content: space-around;
+}
+
 .piece:hover {
   color: #e8d55d;
 }
 
-#finalZaw {
-  width: 50%;
+#finalZaw, #builder {
+  width: 40vw;
+  min-width: 620px;
 }
 
-.selector, #builder {
+#strike-selector, #grip-selector, #link-selector {
   width: 40vw;
   min-width: 620px;
 }
@@ -29,7 +37,7 @@ body {
 .part-layout {
   display: grid;
   gap: 1rem;
-  grid-template-columns: 1fr 1fr 1fr; 
+  grid-template-columns: repeat(3, 1fr);
   position: relative;
 }
 
@@ -37,10 +45,15 @@ body {
   position: relative;
   width: 100%;
   height: 20vh;
+  min-height: 220px;
   text-align: center;
   transition: transform 0.8s;
   transform-style: preserve-3d;
   cursor: pointer;
+}
+
+.part-inner:hover  h3, .part-inner:focus  h3 {
+  color: #e8d55d
 }
 
 .part-front, .part-back {
@@ -48,7 +61,6 @@ body {
   left: 0;
   position: absolute;
   width: 100%;
-  height: 100%;
   -webkit-backface-visibility: hidden; /* Safari */
   backface-visibility: hidden;
 }

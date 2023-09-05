@@ -130,9 +130,9 @@ function App () {
                   <div className="part-inner" onClick={rotate}>
                     <div className="part-front">
                       <img src={require('../assets/images/strike/' + part.img + '.png')} alt={part.name} />
-                      <p className='part-name'>{part.name}</p>
+                      <h3 className='part-name'>{part.name}</h3>
                     </div>
-                    <div className="part-back" onClick={() => SelectPiece('strike', part)}>
+                    <div className="part-back" onClick={() => setTimeout(SelectPiece, 500, 'strike', part)}>
                       <h3>{part.name}</h3>
                       <p>{part.spdMod === 0 ? '' : `Speed: ${part.spdMod > 0 ? '+' : ''}${part.spdMod}`}</p>
                       <p>Total damage: {part.dmg}</p>
@@ -155,9 +155,9 @@ function App () {
                   <div className="part-inner" onClick={rotate}>
                     <div className="part-front">
                       <img src={require('../assets/images/grip/' + part.img + '.png')} alt={part.name} />
-                      <p className='part-name'>{part.name}</p>
+                      <h3 className='part-name'>{part.name}</h3>
                     </div>
-                    <div className="part-back" onClick={() => SelectPiece('grip', part)}>
+                    <div className="part-back" onClick={() => setTimeout(SelectPiece, 500, 'grip', part)}>
                       <h3>{part.name}</h3>
                       <p>Speed: {part.speed}</p>
                       <p>{part.type ? 'Two' : 'One'}-handed</p>
@@ -178,9 +178,9 @@ function App () {
                   <div className="part-inner" onClick={rotate}>
                     <div className="part-front">
                       <img src={require('../assets/images/link/' + part.img + '.png')} alt={part.name} />
-                      <p className='part-name'>{part.name}</p>
+                      <h3 className='part-name'>{part.name}</h3>
                     </div>
-                    <div className="part-back" onClick={() => SelectPiece('link', part)}>
+                    <div className="part-back" onClick={() => setTimeout(SelectPiece, 500, 'link', part)}>
                       <h3>{part.name}</h3>
                       <p>{part.spdMod === 0 ? '' : `Speed: ${part.spdMod > 0 ? '+' : ''}${part.spdMod}`}</p>
                       <p>{part.dmgMod === 0 ? '' : `Damage: ${part.dmgMod > 0 ? '+' : ''}${part.dmgMod}`}</p>
