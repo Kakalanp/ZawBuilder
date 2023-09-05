@@ -92,29 +92,29 @@ function App () {
     <>
       <div id='builder'>
         <div className='piece' onClick={() => OpenPieceSelection('strike')}>
-          <div>
-            <img id='strike-img' src={zawParts.strike.img && require('../assets/images/strike/' + zawParts.strike.img + '.png')}></img>
+          <div className='piece-img'>
+            <img src={zawParts.strike.img && require('../assets/images/strike/' + zawParts.strike.img + '.png')}></img>
           </div>
-          <div>
-            <h3 id='strike-name'>{zawParts.strike.name !== '' ? zawParts.strike.name : 'NONE'}</h3>
+          <div className='piece-text'>
+            <h3>{zawParts.strike.name ? zawParts.strike.name : 'NONE'}</h3>
             <p>Strike</p>
           </div>
         </div>
         <div className='piece' onClick={() => OpenPieceSelection('grip')}>
-          <div>
-            <img id='grip-img' src={zawParts.grip.img && require('../assets/images/grip/' + zawParts.grip.img + '.png')}></img>
+          <div className='piece-img'>
+            <img src={zawParts.grip.img && require('../assets/images/grip/' + zawParts.grip.img + '.png')}></img>
           </div>
-          <div>
-            <h3 id='grip-name'>{zawParts.grip.name !== '' ? zawParts.grip.name : 'NONE'}</h3>
+          <div className='piece-text'>
+            <h3>{zawParts.grip.name ? zawParts.grip.name : 'NONE'}</h3>
             <p>Grip</p>
           </div>
         </div>
         <div className='piece' onClick={() => OpenPieceSelection('link')}>
-          <div>
-            <img id='link-img' src={zawParts.link.img && require('../assets/images/link/' + zawParts.link.img + '.png')}></img>
+          <div className='piece-img'>
+            <img src={zawParts.link.img && require('../assets/images/link/' + zawParts.link.img + '.png')}></img>
           </div>
-          <div>
-            <h3 id='link-name'>{zawParts.link.name !== '' ? zawParts.link.name : 'NONE'}</h3>
+          <div className='piece-text'>
+            <h3>{zawParts.link.name ? zawParts.link.name : 'NONE'}</h3>
             <p>Link</p>
           </div>
         </div>

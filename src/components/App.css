@@ -18,15 +18,30 @@ body {
 .piece {
   display: flex;
   justify-content: space-around;
+  background-color: rgba(56, 80, 90, 0.8);
+  margin: 20px;
+  box-shadow: 0 0 2px 0 rgba(232,213,93,0.75);
+  -webkit-box-shadow: 0 0 2px 0 rgba(232,213,93,0.75);
+  -moz-box-shadow: 0 0 2px 0 rgba(232,213,93,0.75);
 }
 
 .piece:hover {
   color: #e8d55d;
 }
 
+.piece-img {
+  border-right: 3px solid rgba(232,213,93,0.5);
+}
+
+.piece-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 #finalZaw, #builder {
-  width: 40vw;
-  min-width: 620px;
+  width: 620px;
+  max-width: 80vw;
 }
 
 #strike-selector, #grip-selector, #link-selector {
@@ -50,6 +65,11 @@ body {
   transition: transform 0.8s;
   transform-style: preserve-3d;
   cursor: pointer;
+  border: solid 1px transparent
+}
+
+.part-inner:hover, .part-inner:focus {
+  border: solid 1px #e8d55d
 }
 
 .part-inner:hover  h3, .part-inner:focus  h3 {
