@@ -19,7 +19,7 @@ function App () {
         (Object.keys(zawParts.grip).length !== 0) &&
         (Object.keys(zawParts.link).length !== 0)) {
       createZaw()
-      document.getElementById('finalZaw').classList.remove('disabled')
+      document.getElementById('final-zaw').classList.remove('disabled')
     }
   }, [zawParts])
 
@@ -194,7 +194,7 @@ function App () {
           </div>
         </div>
       </div>
-      <div id='finalZaw' className='disabled'>
+      <div id='final-zaw' className='disabled'>
         <div id='zaRender'></div>
         <div id='zawStats'>
           <h3>PRIMARY:</h3>
