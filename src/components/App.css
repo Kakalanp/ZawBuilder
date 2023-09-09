@@ -8,6 +8,7 @@ body {
 
 img {
   width: 100%;
+  transition: all 0.3s ease-in-out;
 }
 
 #root {
@@ -72,7 +73,7 @@ img {
   align-items: flex-start;
 }
 
-#zaw-stats, #builder {
+#zaw-stats, #builder, #strike-selector, #grip-selector, #link-selector {
   width: 620px;
   max-width: 90vw;
 }
@@ -99,36 +100,37 @@ img {
   box-shadow: 0 0 8px 0 rgb(232 213 93 / 75%), 0 0 2000px -210px rgb(232 213 93 / 100%) inset;;
 }
 
-#strike-selector, #grip-selector, #link-selector {
-  width: 40vw;
-  min-width: 620px;
-}
-
 .part-layout {
   display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(3, 1fr);
-  position: relative;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fit, 200px);
+  position: relative; 
+  justify-content: center;
 }
 
 .part-inner {
   position: relative;
-  width: 100%;
   height: 20vh;
   min-height: 220px;
   text-align: center;
-  transition: transform 0.8s;
   transform-style: preserve-3d;
   cursor: pointer;
-  border: solid 1px transparent
+  background-color: rgb(56 80 90 / 80%);
+  margin: 20px;
+  box-shadow: 0 0 2px 0 rgb(232 213 93 / 75%);
+  transition: box-shadow 0.5s ease-in-out, transform 0.8s ease-in-out;
 }
 
-.part-inner:hover, .part-inner:focus {
-  border: solid 1px #e8d55d
+.part-inner:hover  h3{
+  color: #e8d55d;
 }
 
-.part-inner:hover  h3, .part-inner:focus  h3 {
-  color: #e8d55d
+.part-inner:hover img {
+  transform: scale(1.3);
+}
+
+.part-inner:hover {
+  box-shadow: 0 0 8px 0 rgb(232 213 93 / 75%), 0 0 2000px -210px rgb(232 213 93 / 100%) inset;
 }
 
 .part-front, .part-back {

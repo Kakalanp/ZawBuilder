@@ -126,8 +126,7 @@ function App () {
           <div className='part-layout'>
             {strikes.map(part => {
               return (
-                <div key={part.name}>
-                  <div className="part-inner" onClick={rotate}>
+                  <div key={part.name} className="part-inner" onClick={rotate}>
                     <div className="part-front">
                       <img src={require('../assets/images/strike/' + part.img + '.png')} alt={part.name} />
                       <h3 className='part-name'>{part.name}</h3>
@@ -141,7 +140,6 @@ function App () {
                       <p>Status: {`${part.statusChance}%`}</p>
                     </div>
                   </div>
-                </div>
               )
             })}
           </div>
@@ -151,8 +149,7 @@ function App () {
           <div className='part-layout'>
             {grips.map(part => {
               return (
-                <div key={part.name}>
-                  <div className="part-inner" onClick={rotate}>
+                <div key={part.name} className="part-inner" onClick={rotate}>
                     <div className="part-front">
                       <img src={require('../assets/images/grip/' + part.img + '.png')} alt={part.name} />
                       <h3 className='part-name'>{part.name}</h3>
@@ -164,7 +161,6 @@ function App () {
                       <p>{part.dmgMod === 0 ? '' : `Damage: ${part.dmgMod > 0 ? '+' : ''}${part.dmgMod}`}</p>
                     </div>
                   </div>
-                </div>
               )
             })}
           </div>
@@ -174,8 +170,7 @@ function App () {
           <div className='part-layout'>
             {links.map(part => {
               return (
-                <div key={part.name}>
-                  <div className="part-inner" onClick={rotate}>
+                  <div key={part.name} className="part-inner" onClick={rotate}>
                     <div className="part-front">
                       <img src={require('../assets/images/link/' + part.img + '.png')} alt={part.name} />
                       <h3 className='part-name'>{part.name}</h3>
@@ -188,7 +183,6 @@ function App () {
                       <p>{part.stsMod === 0 ? '' : `Status chance: ${part.stsMod > 0 ? '+' : ''}${part.stsMod}`}</p>
                     </div>
                   </div>
-                </div>
               )
             })}
           </div>
