@@ -12,13 +12,13 @@ img {
 
 #root {
   display: flex;
-  padding: min(40px, 5vw);
+  padding-top: min(40px, 5vw);
   flex-wrap: wrap;
   justify-content: center;
 }
 
 .disabled {
-  display: none;
+  display: none !important;
 }
 
 .piece {
@@ -72,9 +72,31 @@ img {
   align-items: flex-start;
 }
 
-#final-zaw, #builder {
+#zaw-stats, #builder {
   width: 620px;
   max-width: 90vw;
+}
+
+#builder {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+#zaw-stats {
+  padding: 8px;
+  background-color: rgb(56 80 90 / 80%);
+  margin: 20px;
+  box-shadow: 0 0 2px 0 rgb(232 213 93 / 75%);
+  transition: box-shadow 1s ease-in-out;
+}
+
+#zaw-stats > h3 {
+  color: #e8d55d;
+}
+
+#zaw-stats:hover {
+  box-shadow: 0 0 8px 0 rgb(232 213 93 / 75%), 0 0 2000px -210px rgb(232 213 93 / 100%) inset;;
 }
 
 #strike-selector, #grip-selector, #link-selector {

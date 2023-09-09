@@ -19,7 +19,7 @@ function App () {
         (Object.keys(zawParts.grip).length !== 0) &&
         (Object.keys(zawParts.link).length !== 0)) {
       createZaw()
-      document.getElementById('final-zaw').classList.remove('disabled')
+      document.getElementById('zaw-stats').classList.remove('disabled')
     }
   }, [zawParts])
 
@@ -194,23 +194,20 @@ function App () {
           </div>
         </div>
       </div>
-      <div id='final-zaw' className='disabled'>
-        <div id='zaRender'></div>
-        <div id='zawStats'>
-          <h3>PRIMARY:</h3>
-          <p>Type: {zawStats.type}</p>
-          <p>Speed: {zawStats.speed}</p>
-          <p>Range: {zawStats.range}</p>
-          <h3>DAMAGE:</h3>
-          <p>Crit chance: {`${zawStats.crtChance}%`}</p>
-          <p>Crit damage: {`${zawStats.crtMultiplier} X`}</p>
-          <p>Status: {`${zawStats.statusChance}%`}</p>
-          <p>Impact: {zawStats.impact}</p>
-          <p>Puncture: {zawStats.puncture}</p>
-          <p>Slash: {zawStats.slash}</p>
-          {zawStats.viral > 0 && (<p>Viral: {zawStats.viral}</p>)}
-          <p>Total: {zawStats.dmgTotal} {`(Mainly ${zawStats.dmgType}, ${zawParts.strike[zawStats.dmgType]}%)`}</p>
-        </div>
+      <div id='zaw-stats' className='disabled'>
+        <h3>PRIMARY:</h3>
+        <p>Type: {zawStats.type}</p>
+        <p>Speed: {zawStats.speed}</p>
+        <p>Range: {zawStats.range}</p>
+        <h3>DAMAGE:</h3>
+        <p>Crit chance: {`${zawStats.crtChance}%`}</p>
+        <p>Crit damage: {`${zawStats.crtMultiplier} X`}</p>
+        <p>Status: {`${zawStats.statusChance}%`}</p>
+        <p>Impact: {zawStats.impact}</p>
+        <p>Puncture: {zawStats.puncture}</p>
+        <p>Slash: {zawStats.slash}</p>
+        {zawStats.viral > 0 && (<p>Viral: {zawStats.viral}</p>)}
+        <p>Total: {zawStats.dmgTotal} {`(Mainly ${zawStats.dmgType}, ${zawParts.strike[zawStats.dmgType]}%)`}</p>
       </div>
 
     </>
