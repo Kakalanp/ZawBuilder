@@ -23,6 +23,7 @@ img {
 }
 
 .piece {
+  position: relative;
   display: flex;
   justify-content: flex-start;
   gap: 20px;
@@ -64,6 +65,22 @@ img {
 
 .piece:hover > .piece-img::after {
   transform: scale(1.3)
+}
+
+.piece::after {
+  content: '';
+  position: absolute;
+  height: 2px;
+  width: 0%;
+  left: 50%;
+  bottom: 0;
+  background-color: #e8d55d;
+  transition: width 0.5s ease-in-out, left 0.5s ease-in-out;
+}
+
+.piece:hover::after {
+  width: 100%;
+  left: 0;
 }
 
 .piece-text {
@@ -118,7 +135,7 @@ img {
   background-color: rgb(56 80 90 / 80%);
   margin: 20px;
   box-shadow: 0 0 2px 0 rgb(232 213 93 / 75%);
-  transition: box-shadow 0.5s ease-in-out, transform 0.8s ease-in-out;
+  transition: box-shadow 0.5s ease-in-out, transform 0.3s ease-in-out;
 }
 
 .part-inner:hover  h3{
