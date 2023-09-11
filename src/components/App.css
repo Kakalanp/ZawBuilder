@@ -6,6 +6,18 @@ body {
   margin: 0
 }
 
+.orb {
+  background-color: white;
+  height: 200px;
+  width: 200px;
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(50px);
+  opacity: 0;
+  transition: opacity 1s;
+  pointer-events: none;
+}
+
 img {
   width: 100%;
   transition: all 0.3s ease-in-out;
@@ -30,6 +42,7 @@ img {
   padding: 8px;
   background-color: rgb(56 80 90 / 80%);
   margin: 20px;
+  cursor: pointer;
   box-shadow: 0 0 2px 0 rgb(232 213 93 / 75%);
   transition: box-shadow 0.3s ease-in-out, color 0.3s ease-in-out;
 }
@@ -107,6 +120,12 @@ img {
   margin: 20px;
   box-shadow: 0 0 2px 0 rgb(232 213 93 / 75%);
   transition: box-shadow 1s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.part-inner:hover  h3{
+  color: #e8d55d;
 }
 
 #zaw-stats > h3 {
@@ -136,10 +155,6 @@ img {
   margin: 20px;
   box-shadow: 0 0 2px 0 rgb(232 213 93 / 75%);
   transition: box-shadow 0.5s ease-in-out, transform 0.3s ease-in-out;
-}
-
-.part-inner:hover  h3{
-  color: #e8d55d;
 }
 
 .part-inner:hover img {

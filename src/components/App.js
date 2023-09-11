@@ -28,6 +28,21 @@ function App () {
     console.log(zawStats)
   }, [zawStats])
 
+  useEffect(() => {
+    const orbs = document.getElementsByClassName('orb')
+    const orbCount = orbs.length
+    for (let i = 0; i < orbCount; i++) {
+      orbs[0].remove()
+    }
+    const zawStatsContainer = document.getElementById('zaw-stats')
+    if (zawStatsContainer && !(zawStatsContainer.classList.contains('disabled'))) {
+      orb = document.createElement('div')
+      orb.classList.add('orb')
+      zawStatsContainer.insertBefore(orb, zawStatsContainer.firstChild)
+      startingOrbCords = orb.getBoundingClientRect()
+    }
+  }, [zawStats])
+
   function OpenPieceSelection (piece) {
     document.getElementById(`${piece}-selector`).classList.remove('disabled')
     document.getElementById('builder').classList.add('disabled')
@@ -86,6 +101,23 @@ function App () {
         rotatedElements[0].classList.remove('rotated')
       }
     } else e.target.classList.toggle('rotated')
+  }
+
+  let orb = ''
+  let startingOrbCords = ''
+
+  document.body.onpointermove = (cords) => {
+    const { clientX, clientY } = cords
+
+    orb.style.transform = 'translate(-50%,-50%)'
+    orb.animate({
+      left: `${clientX - startingOrbCords.x}px`,
+      top: `${clientY - startingOrbCords.y}px`
+    }, { duration: 2000, fill: 'forwards' })
+
+    setTimeout(() => {
+      orb.style.opacity = '0.1'
+    }, 1000)
   }
 
   return (
