@@ -40,6 +40,7 @@ function App () {
       orb.classList.add('orb')
       zawStatsContainer.insertBefore(orb, zawStatsContainer.firstChild)
       startingOrbCords = orb.getBoundingClientRect()
+      orb.style.transform = 'translate(-50%,-50%)'
     }
   }, [zawStats])
 
@@ -94,7 +95,7 @@ function App () {
   }
 
   const rotate = (e) => {
-    if (e.target.classList.contains('part-back')) {
+    if (e.target.classList.contains('rotated')) {
       const rotatedElements = document.getElementsByClassName('rotated')
       const rotatedElementsCount = rotatedElements.length
       for (let i = 0; i < rotatedElementsCount; i++) {
@@ -109,7 +110,6 @@ function App () {
   document.body.onpointermove = (cords) => {
     const { clientX, clientY } = cords
 
-    orb.style.transform = 'translate(-50%,-50%)'
     orb.animate({
       left: `${clientX - startingOrbCords.x}px`,
       top: `${clientY - startingOrbCords.y}px`
@@ -123,7 +123,7 @@ function App () {
   return (
     <>
       <div id='builder'>
-        <div className='piece' onClick={() => OpenPieceSelection('strike')}>
+        <div className='piece' onClick={() => OpenPieceSelection('strike')} tabIndex="0">
           <div className='piece-img'>
             <img src={zawParts.strike.img && require('../assets/images/strike/' + zawParts.strike.img + '.png')}></img>
           </div>
@@ -132,7 +132,7 @@ function App () {
             <p>Strike</p>
           </div>
         </div>
-        <div className='piece' onClick={() => OpenPieceSelection('grip')}>
+        <div className='piece' onClick={() => OpenPieceSelection('grip')} tabIndex="0">
           <div className='piece-img'>
             <img src={zawParts.grip.img && require('../assets/images/grip/' + zawParts.grip.img + '.png')}></img>
           </div>
@@ -141,7 +141,7 @@ function App () {
             <p>Grip</p>
           </div>
         </div>
-        <div className='piece' onClick={() => OpenPieceSelection('link')}>
+        <div className='piece' onClick={() => OpenPieceSelection('link')} tabIndex="0">
           <div className='piece-img'>
             <img src={zawParts.link.img && require('../assets/images/link/' + zawParts.link.img + '.png')}></img>
           </div>
@@ -158,12 +158,15 @@ function App () {
           <div className='part-layout'>
             {strikes.map(part => {
               return (
-                  <div key={part.name} className="part-inner" onClick={rotate}>
+                  <div key={part.name} className="part-inner" onClick={event => {
+                    event.target.classList.contains('rotated') && setTimeout(SelectPiece, 500, 'strike', part)
+                    rotate(event)
+                  }}>
                     <div className="part-front">
                       <img src={require('../assets/images/strike/' + part.img + '.png')} alt={part.name} />
                       <h3 className='part-name'>{part.name}</h3>
                     </div>
-                    <div className="part-back" onClick={() => setTimeout(SelectPiece, 500, 'strike', part)}>
+                    <div className="part-back">
                       <h3>{part.name}</h3>
                       <p>{part.spdMod === 0 ? '' : `Speed: ${part.spdMod > 0 ? '+' : ''}${part.spdMod}`}</p>
                       <p>Total damage: {part.dmg}</p>
@@ -181,12 +184,15 @@ function App () {
           <div className='part-layout'>
             {grips.map(part => {
               return (
-                <div key={part.name} className="part-inner" onClick={rotate}>
+                <div key={part.name} className="part-inner" onClick={event => {
+                  event.target.classList.contains('rotated') && setTimeout(SelectPiece, 500, 'grip', part)
+                  rotate(event)
+                }}>
                     <div className="part-front">
                       <img src={require('../assets/images/grip/' + part.img + '.png')} alt={part.name} />
                       <h3 className='part-name'>{part.name}</h3>
                     </div>
-                    <div className="part-back" onClick={() => setTimeout(SelectPiece, 500, 'grip', part)}>
+                    <div className="part-back">
                       <h3>{part.name}</h3>
                       <p>Speed: {part.speed}</p>
                       <p>{part.type ? 'Two' : 'One'}-handed</p>
@@ -202,12 +208,15 @@ function App () {
           <div className='part-layout'>
             {links.map(part => {
               return (
-                  <div key={part.name} className="part-inner" onClick={rotate}>
+                  <div key={part.name} className="part-inner" onClick={event => {
+                    event.target.classList.contains('rotated') && setTimeout(SelectPiece, 500, 'link', part)
+                    rotate(event)
+                  }}>
                     <div className="part-front">
                       <img src={require('../assets/images/link/' + part.img + '.png')} alt={part.name} />
                       <h3 className='part-name'>{part.name}</h3>
                     </div>
-                    <div className="part-back" onClick={() => setTimeout(SelectPiece, 500, 'link', part)}>
+                    <div className="part-back">
                       <h3>{part.name}</h3>
                       <p>{part.spdMod === 0 ? '' : `Speed: ${part.spdMod > 0 ? '+' : ''}${part.spdMod}`}</p>
                       <p>{part.dmgMod === 0 ? '' : `Damage: ${part.dmgMod > 0 ? '+' : ''}${part.dmgMod}`}</p>
@@ -220,7 +229,7 @@ function App () {
           </div>
         </div>
       </div>
-      <div id='zaw-stats' className='disabled'>
+      <div id='zaw-stats' className='disabled' tabIndex="0">
         <h3>PRIMARY:</h3>
         <p>Type: {zawStats.type}</p>
         <p>Speed: {zawStats.speed}</p>
