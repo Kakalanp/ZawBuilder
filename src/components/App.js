@@ -120,10 +120,15 @@ function App () {
     }, 1000)
   }
 
+  const handleEvent = (e, piece, part) => {
+    e.target.classList.contains('rotated') && setTimeout(SelectPiece, 500, piece, part)
+    rotate(e)
+  }
+
   return (
     <>
       <div id='builder'>
-        <div className='piece' onClick={() => OpenPieceSelection('strike')} tabIndex="0">
+        <div className='piece' onKeyDown={e => e.key === 'Enter' && OpenPieceSelection('strike')} onClick={() => OpenPieceSelection('strike')} tabIndex="0">
           <div className='piece-img'>
             <img src={zawParts.strike.img && require('../assets/images/strike/' + zawParts.strike.img + '.png')}></img>
           </div>
@@ -132,7 +137,7 @@ function App () {
             <p>Strike</p>
           </div>
         </div>
-        <div className='piece' onClick={() => OpenPieceSelection('grip')} tabIndex="0">
+        <div className='piece' onKeyDown={e => e.key === 'Enter' && OpenPieceSelection('grip')} onClick={() => OpenPieceSelection('grip')} tabIndex="0">
           <div className='piece-img'>
             <img src={zawParts.grip.img && require('../assets/images/grip/' + zawParts.grip.img + '.png')}></img>
           </div>
@@ -141,7 +146,7 @@ function App () {
             <p>Grip</p>
           </div>
         </div>
-        <div className='piece' onClick={() => OpenPieceSelection('link')} tabIndex="0">
+        <div className='piece' onKeyDown={e => e.key === 'Enter' && OpenPieceSelection('link')} onClick={() => OpenPieceSelection('link')} tabIndex="0">
           <div className='piece-img'>
             <img src={zawParts.link.img && require('../assets/images/link/' + zawParts.link.img + '.png')}></img>
           </div>
@@ -158,10 +163,7 @@ function App () {
           <div className='part-layout'>
             {strikes.map(part => {
               return (
-                  <div key={part.name} className="part-inner" onClick={event => {
-                    event.target.classList.contains('rotated') && setTimeout(SelectPiece, 500, 'strike', part)
-                    rotate(event)
-                  }}>
+                  <div key={part.name} className="part-inner" tabIndex="0" onKeyDown={e => e.key === 'Enter' && handleEvent(e, 'strike', part)} onClick={e => handleEvent(e, 'strike', part)}>
                     <div className="part-front">
                       <img src={require('../assets/images/strike/' + part.img + '.png')} alt={part.name} />
                       <h3 className='part-name'>{part.name}</h3>
@@ -184,10 +186,7 @@ function App () {
           <div className='part-layout'>
             {grips.map(part => {
               return (
-                <div key={part.name} className="part-inner" onClick={event => {
-                  event.target.classList.contains('rotated') && setTimeout(SelectPiece, 500, 'grip', part)
-                  rotate(event)
-                }}>
+                <div key={part.name} className="part-inner" tabIndex="0" onKeyDown={e => e.key === 'Enter' && handleEvent(e, 'grip', part)} onClick={e => handleEvent(e, 'grip', part)}>
                     <div className="part-front">
                       <img src={require('../assets/images/grip/' + part.img + '.png')} alt={part.name} />
                       <h3 className='part-name'>{part.name}</h3>
@@ -208,10 +207,7 @@ function App () {
           <div className='part-layout'>
             {links.map(part => {
               return (
-                  <div key={part.name} className="part-inner" onClick={event => {
-                    event.target.classList.contains('rotated') && setTimeout(SelectPiece, 500, 'link', part)
-                    rotate(event)
-                  }}>
+                  <div key={part.name} className="part-inner" tabIndex="0" onKeyDown={e => e.key === 'Enter' && handleEvent(e, 'link', part)} onClick={e => handleEvent(e, 'link', part)}>
                     <div className="part-front">
                       <img src={require('../assets/images/link/' + part.img + '.png')} alt={part.name} />
                       <h3 className='part-name'>{part.name}</h3>
