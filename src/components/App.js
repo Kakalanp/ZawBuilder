@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
 import './App.css'
 import getExtraStats from '../modules/helperFunctions'
 import grips from '../modules/grip'
@@ -6,6 +7,10 @@ import links from '../modules/link'
 import strikes from '../modules/strike'
 
 function App () {
+  // I need to read parameters from the URL
+  const { userId } = useParams()
+  console.log(userId)
+
   const [zawParts, setZawParts] = useState({
     strike: {},
     grip: {},
