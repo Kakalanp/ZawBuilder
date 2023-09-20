@@ -1,14 +1,14 @@
-# [ZawBuilder ⚔️](kakalanp.github.io/zaw-builder/)
+# [ZawBuilder ⚔️](https://kakalanp.github.io/zaw-builder/)
 
- This modular React [web application](kakalanp.github.io/zaw-builder/) lets you build a weapon called _Zaw_ from the game Warframe by selecting the respective pieces after which the web app will calculate the final numbers.
+ This modular React [web application](https://kakalanp.github.io/zaw-builder/) lets you build a weapon called _Zaw_ from the game Warframe by selecting the respective pieces after which the web app will calculate the final numbers.
  This project uses data from [Warframe's wiki](https://warframe.fandom.com/wiki/Zaw) to display and calculate numbers that should reflect the in-game ones.
 
 ## Quick tutorial: :wink:
 
-With [ZawBuilder](kakalanp.github.io/zaw-builder/), you can do the following:
+With [ZawBuilder](https://kakalanp.github.io/zaw-builder/), you can do the following:
 
 - ### Create a Zaw:
-  - Open [ZawBuilder](kakalanp.github.io/zaw-builder/) and start by selecting a section of your weapon (Strike, Grip, or Link)
+  - Open [ZawBuilder](https://kakalanp.github.io/zaw-builder/) and start by selecting a section of your weapon (Strike, Grip, or Link)
   - A new menu will appear, here you can select a piece that can fit into the selected slot. There are many options in each category so take your time!
   - If one looks appealing to you, make sure to click it so it turns around and shows you its stats (Pro tip: you can turn more than one at a time)
   - Click your selected piece again to select it, you'll return to the main menu with your selected piece for the slot and are now able to select the other two.
