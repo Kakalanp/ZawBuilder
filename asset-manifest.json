@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/zaw-builder/static/css/main.5376bb37.css",
-    "main.js": "/zaw-builder/static/js/main.cd0f75ff.js",
+    "main.css": "/zaw-builder/static/css/main.fef8bee3.css",
+    "main.js": "/zaw-builder/static/js/main.c4659a26.js",
     "static/media/vargeet-jai-2.png": "/zaw-builder/static/media/vargeet-jai-2.5c78986a1ec7e3d89d23.png",
     "static/media/ekwana-jai-2.png": "/zaw-builder/static/media/ekwana-jai-2.a7fd777a25ef5bfe7c26.png",
     "static/media/ekwana-2-ruhang.png": "/zaw-builder/static/media/ekwana-2-ruhang.445ceed4ff6d9c8916ff.png",
@@ -61,11 +61,11 @@
     "static/media/jayap.png": "/zaw-builder/static/media/jayap.18408067018b7053d184.png",
     "static/media/sepfahn.png": "/zaw-builder/static/media/sepfahn.bbb340589221caa436ca.png",
     "index.html": "/zaw-builder/index.html",
-    "main.5376bb37.css.map": "/zaw-builder/static/css/main.5376bb37.css.map",
-    "main.cd0f75ff.js.map": "/zaw-builder/static/js/main.cd0f75ff.js.map"
+    "main.fef8bee3.css.map": "/zaw-builder/static/css/main.fef8bee3.css.map",
+    "main.c4659a26.js.map": "/zaw-builder/static/js/main.c4659a26.js.map"
   },
   "entrypoints": [
-    "static/css/main.5376bb37.css",
-    "static/js/main.cd0f75ff.js"
+    "static/css/main.fef8bee3.css",
+    "static/js/main.c4659a26.js"
   ]
 }
