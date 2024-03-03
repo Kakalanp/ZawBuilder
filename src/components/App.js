@@ -1,16 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
 import './App.css'
 import getExtraStats from '../modules/helperFunctions'
 import grips from '../modules/grip'
 import links from '../modules/link'
 import strikes from '../modules/strike'
 
-function App () {
-  // I need to read parameters from the URL
-  const { userId } = useParams()
-  console.log(userId)
-
+const App = () => {
   const [zawParts, setZawParts] = useState({
     strike: {},
     grip: {},
@@ -27,11 +22,6 @@ function App () {
       document.getElementById('zaw-stats').classList.remove('disabled')
     }
   }, [zawParts])
-
-  // Let's hope I don't forget to delete this later
-  useEffect(() => {
-    console.log(zawStats)
-  }, [zawStats])
 
   useEffect(() => {
     const orbs = document.getElementsByClassName('orb')
@@ -238,12 +228,12 @@ function App () {
         <h3>DAMAGE:</h3>
         <p>Crit chance: {`${zawStats.crtChance}%`}</p>
         <p>Crit damage: {`${zawStats.crtMultiplier} X`}</p>
-        <p>Status: {`${zawStats.statusChance}%`}</p>
-        <p>Impact: {zawStats.impact}</p>
-        <p>Puncture: {zawStats.puncture}</p>
-        <p>Slash: {zawStats.slash}</p>
-        {zawStats.viral > 0 && (<p>Viral: {zawStats.viral}</p>)}
-        <p>Total: {zawStats.dmgTotal} {`(Mainly ${zawStats.dmgType}, ${zawParts.strike[zawStats.dmgType]}%)`}</p>
+        <p>Status chance: {`${zawStats.statusChance}%`}</p>
+        <p>Impact: {zawStats.impact} {`(${Math.round(zawStats.impact * 100 / zawStats.dmgTotal)}%)`}</p>
+        <p>Puncture: {zawStats.puncture} {`(${Math.round(zawStats.puncture * 100 / zawStats.dmgTotal)}%)`}</p>
+        <p>Slash: {zawStats.slash} {`(${Math.round(zawStats.slash * 100 / zawStats.dmgTotal)}%)`}</p>
+        {zawStats.viral > 0 && (<p>Viral: {zawStats.viral} {`(${Math.round(zawStats.viral * 100 / zawStats.dmgTotal)}%)`}</p>)}
+        <h3>Total: {zawStats.dmgTotal} {zawStats.dmgType}</h3>
       </div>
 
     </>
